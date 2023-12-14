@@ -11,7 +11,7 @@ export default function NavigationMenu() {
     const AddAdmin = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3001/Register', { username, password })
+            await axios.post('https://project-techno.vercel.app/Register', { username, password })
                 .then(result => console.log(result))
                 .catch(error => console.log(error))
             alert('User Registration Successful')
@@ -22,7 +22,7 @@ export default function NavigationMenu() {
 
     const CheckAdmin = async (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/Login', { username, password })
+        axios.post('https://project-techno.vercel.app/Login', { username, password })
             .then(result => {
                 if (result.data.token) {
                     localStorage.setItem('token', result.data.token)
@@ -81,7 +81,7 @@ export default function NavigationMenu() {
 
     const AddNewNotice = async () => {
         try {
-            await axios.post('http://localhost:3001/AddNewNotice', { ...Notice })
+            await axios.post('https://project-techno.vercel.app/AddNewNotice', { ...Notice })
                 .then(result => console.log(result))
                 .catch(error => console.log(error))
         } catch (error) {
@@ -91,7 +91,7 @@ export default function NavigationMenu() {
 
     const AddNewAcademicsDropDown = async () => {
         try {
-            await axios.post('http://localhost:3001/AddNewAcademicDropDown', { ...AcademicsDropdown })
+            await axios.post('https://project-techno.vercel.app/AddNewAcademicDropDown', { ...AcademicsDropdown })
                 .then(result => console.log(result))
                 .catch(error => console.log(error))
         } catch (error) {
@@ -101,7 +101,7 @@ export default function NavigationMenu() {
 
     const AddNewAdmissionDropDown = async () => {
         try {
-            await axios.post('http://localhost:3001/AddNewAdmissionDropDown', { ...AdmissionsDropdown })
+            await axios.post('https://project-techno.vercel.app/AddNewAdmissionDropDown', { ...AdmissionsDropdown })
                 .then(result => console.log(result))
                 .catch(error => console.log(error))
         } catch (error) {
@@ -111,7 +111,7 @@ export default function NavigationMenu() {
 
     const AddNewGalleryDropDown = async () => {
         try {
-            await axios.post('http://localhost:3001/AddNewGalleryDropDown', { ...GalleryDropDown })
+            await axios.post('https://project-techno.vercel.app/AddNewGalleryDropDown', { ...GalleryDropDown })
                 .then(result => console.log(result))
                 .catch(error => console.log(error))
         } catch (error) {
@@ -125,31 +125,31 @@ export default function NavigationMenu() {
     const [AllGalleryDropDown, setAllGalleryDropDown] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/GetNotice')
+        axios.get('https://project-techno.vercel.app/GetNotice')
             .then(result => setAllNotice(result.data))
             .catch(error => console.log(error))
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:3001/GetAcademicDropDown')
+        axios.get('https://project-techno.vercel.app/GetAcademicDropDown')
             .then(result => setAllAcademicDropDown(result.data))
             .catch(error => console.log(error))
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:3001/GetAdmissionDropDown')
+        axios.get('https://project-techno.vercel.app/GetAdmissionDropDown')
             .then(result => setAllAdmissionDropDown(result.data))
             .catch(error => console.log(error))
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:3001/GetGalleryDropDown')
+        axios.get('https://project-techno.vercel.app/GetGalleryDropDown')
             .then(result => setAllGalleryDropDown(result.data))
             .catch(error => console.log(error))
     }, [])
 
     const DeleteNotice = async (id) => {
-        axios.delete('http://localhost:3001/DeleteNotice/' + id)
+        axios.delete('https://project-techno.vercel.app/DeleteNotice/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -157,7 +157,7 @@ export default function NavigationMenu() {
             .catch(error => console.log(error))
     }
     const DeleteAcademicDropDown = async (id) => {
-        axios.delete('http://localhost:3001/DeleteAcademicDropDown/' + id)
+        axios.delete('https://project-techno.vercel.app/DeleteAcademicDropDown/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -165,7 +165,7 @@ export default function NavigationMenu() {
             .catch(error => console.log(error))
     }
     const DeleteAdmissionDropDown = async (id) => {
-        axios.delete('http://localhost:3001/DeleteAdmissionDropDown/' + id)
+        axios.delete('https://project-techno.vercel.app/DeleteAdmissionDropDown/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -174,7 +174,7 @@ export default function NavigationMenu() {
     }
 
     const DeleteGalleryDropDown = async (id) => {
-        axios.delete('http://localhost:3001/DeleteGalleryDropDown/' + id)
+        axios.delete('https://project-techno.vercel.app/DeleteGalleryDropDown/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
