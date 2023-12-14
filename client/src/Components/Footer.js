@@ -38,7 +38,7 @@ export default function Footer() {
     axios.get('https://project-techno.vercel.app/GetContactInfo')
       .then(result => setAllContact(result.data))
       .catch(error => console.log(error))
-  })
+  },[])
 
   const DeleteContactInfo = async (id) => {
     axios.delete('https://project-techno.vercel.app/DeleteContactInfo/' + id)
