@@ -249,8 +249,8 @@ app.delete('/DeleteAdmissionDropDown/:id', (req, res) => {
 
 app.post("/AddNewGalleryDropDown", (req, res) => {
     GalleryDropDownSchema.create(req.body)
-        .then(result => res.json(result))
-        .catch(error => res.json(error))
+        .then(result => res.status(200).json(result))
+        .catch(error => res.status(500).json(error));
 });
 
 app.get('/GetGalleryDropDown', (req, res) => {
