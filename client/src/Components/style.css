@@ -1,0 +1,538 @@
+* {
+  scroll-behavior: smooth;
+}
+
+.btn{
+  padding: 5px;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.NavigatioinMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted rgb(57, 57, 57);
+  background-color: #333;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+}
+i {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.calendar iframe {
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.calendar .modal-body{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.Menu{
+  display: none;
+}
+
+.NoticeBoard iframe {
+  width: 1100px;
+  height: 800px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.NoticeBoard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.SingleNotice {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.modal-backdrop {
+  position: unset;
+  z-index: 1 !important;
+}
+
+.Logo {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.Logo h3 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: white;
+}
+
+.Logo h5 {
+  display: none;
+}
+
+.NavButtons {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Authenticate {
+  padding: 5px;
+  display: flex;
+  gap: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Info {
+  background-color: lightgoldenrodyellow;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 60px;
+}
+
+.Excel{
+  display: flex;
+align-items: center;
+  gap: 10px;
+}
+
+
+.Data {
+  display: flex;
+  justify-content: center;
+}
+
+.Data table {
+  text-align: center;
+}
+
+.Data th {
+  border: 1px solid black;
+  width: 500px;
+}
+
+.Data td {
+  border: 1px dotted black;
+}
+
+.Actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Actions form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.Actions form input {
+  width: 500px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.AddModal {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddModal input {
+  border-radius: 10px;
+}
+
+.AddModal textarea {
+  border-radius: 10px;
+  min-height: 100px;
+  resize: vertical;
+  overflow-y: visible;
+}
+
+.Gallery {
+  background-color: rgb(211, 225, 181);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: fit-content;
+  margin-bottom: 60px;
+}
+
+.CarouselDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.CarouselDiv .carousel-item img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.CarouselDiv .carousel {
+  width: 800px;
+}
+
+.card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.AdditionalImages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.AdditionalImages img {
+  width: 500px;
+  object-fit: contain;
+}
+
+.Foot {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.Home {
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 60px;
+  background-color: lightgoldenrodyellow;
+  /* background-blend-mode: multiply;
+  color: whitesmoke;  */
+}
+
+.Home h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 80px;
+  color: blue;
+}
+
+.Intro {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 10px;
+}
+
+.Intro p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: larger;
+}
+
+.Intro img {
+  height: 300px;
+  width: fit-content;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.About {
+  padding: 20px;
+  /* background-blend-mode: multiply; */
+}
+
+.About .CarouselImage {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.CarouselImage img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.About h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.About p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: larger;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1350px) {
+  *{
+    font-size: 13px;
+  }
+  .NavigatioinMenu {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    justify-content:space-between;
+    gap: 0px;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+  }
+  .Logo {
+    padding: 5px;
+  }
+  
+  .Logo h3 {
+    display: none;
+  }
+
+  .Logo h5 {
+    font-family: 'Times New Roman', Times, serif;
+    display:contents;
+    color: white;
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  .NavButtons {
+    padding: 1px;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  
+  .Authenticate {
+    padding: 1px;
+    gap: 5px;
+  }
+
+  .Info {
+    padding: 10px;
+    gap: 10px;
+    margin-bottom: 60px;
+  }
+  
+  .Actions form input {
+    width: 300px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .NavigatioinMenu{
+    display: none;
+  }
+  .Menu{
+    display: block;
+    width: 100%;
+    background-color: #333;
+  }
+
+  .Menu .Logo h3 {
+    display: contents;
+    color: #333;
+  }
+
+  .Menu .Logo h5 {
+    display: none;
+  }
+
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+
+  .Menu .NavButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .Menu .btn {
+    width: 130px;
+  }
+
+}
+
+@media (max-width : 1150px) {
+  .NoticeBoard iframe {
+    width: 1000px;
+    height: 800px;
+  }
+}
+
+@media (max-width : 1050px) {
+
+  .NoticeBoard iframe {
+    width: 800px;
+    height: 600px;
+  }
+
+  .calendar iframe {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .calendar .modal-body{
+    flex-direction: column;
+    gap: 10px;
+  }
+
+    .calendar iframe {
+      width: 350px;
+      height: 350px;
+    }
+}
+
+@media (max-width: 850px) {
+  .Gallery {
+    padding: 10px;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  
+  .CarouselDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .CarouselDiv .carousel-item img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
+  .CarouselDiv .carousel {
+    width: 700px;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+  }
+  
+  .AdditionalImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .AdditionalImages img {
+    width: 500px;
+    object-fit: contain;
+  }
+}
+
+.NoticeBoard iframe {
+  width: 600px;
+  height: 500px;
+}
+
+
+@media (max-width: 750px) {
+  .Excel button{
+    font-size: 0px;
+  }
+
+  .CarouselDiv .carousel {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .Intro img {
+    height: 250px;
+  }  
+}
+
+@media (max-width: 650px) {
+  .Data tr td button{
+    font-size: 0px;
+  }
+  i{
+    padding: 2px;
+  }
+  .NoticeBoard iframe {
+    width: 400px;
+    height: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Actions form input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 570px) {
+
+  .Intro img {
+    height: 200px;
+  }  
+}
+
+@media (max-width: 500px) {
+  .Actions form input {
+    width: 100px;
+  }
+  .Intro img {
+    height: 150px;
+  }  
+
+  .AdditionalImages img {
+    width: 390px;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 400px) {
+  .Actions form input {
+    width: 60px;
+  }
+  .AdditionalImages img {
+    width: 350px;
+    object-fit: contain;
+  }
+}
+
