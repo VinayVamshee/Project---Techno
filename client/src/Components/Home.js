@@ -10,7 +10,7 @@ export default function Home() {
     const [AllCarouselImage, setAllCarouselImage] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/GetCarouselImage')
+        axios.get('https://project-techno.vercel.app/GetCarouselImage')
             .then(result => setAllCarouselImage(result.data))
             .catch(error => console.log(error))
     }, [])
