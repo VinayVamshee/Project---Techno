@@ -112,8 +112,8 @@ export default function NavigationMenu() {
     const AddNewGalleryDropDown = async () => {
         try {
             await axios.post('https://project-techno.vercel.app/AddNewGalleryDropDown', { ...GalleryDropDown })
-                .then(result => console.log(result))
-                .catch(error => console.log(error))
+                 console.log(response.status); 
+        console.log(response.data); 
         } catch (error) {
             console.log(error);
         }
