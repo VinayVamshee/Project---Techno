@@ -119,7 +119,11 @@ export default function NavigationMenu() {
     .catch(error => {
         console.error(error);
     });
+    } catch (error) {
+            console.log(error);
+        }
     }
+       
 
     const [AllNotice, setAllNotice] = useState([]);
     const [AllAcademicDropDown, setAllAcademicDropDown] = useState([]);
