@@ -63,9 +63,8 @@ app.delete('/DeleteStudent/:id', (req, res) => {
 })
 
 app.post("/TeacherInfo", (req, res) => {
-     console.log('Received POST request at /TeacherInfo');
     TeacherSchema.create(req.body)
-        .then(result => res.json(result))
+        .then(result => res.json('Got Teacher Data'))
         .catch(error => res.json(error))
 });
 
