@@ -79,7 +79,8 @@ export default function NavigationMenu() {
         Link: ''
     })
 
-    const AddNewNotice = async () => {
+    const AddNewNotice = async (e) => {
+        e.preventDefault();
         try {
             await axios.post('https://project-techno.vercel.app/AddNewNotice', { ...Notice })
                 .then(result => console.log(result))
@@ -89,7 +90,8 @@ export default function NavigationMenu() {
         }
     }
 
-    const AddNewAcademicsDropDown = async () => {
+    const AddNewAcademicsDropDown = async (e) => {
+         e.preventDefault();
         try {
             await axios.post('https://project-techno.vercel.app/AddNewAcademicDropDown', { ...AcademicsDropdown })
                 .then(result => console.log(result))
