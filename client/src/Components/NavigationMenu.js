@@ -336,7 +336,13 @@ export default function NavigationMenu() {
                                             return (
                                                 <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
                                                     <li ><a className="dropdown-item" href={Element.Link} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
-                                                    <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
+            {
+                                            IsLoggedIn ? (
+                                                <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
+                                            ) :
+                                                null
+                                        }
+                                                   
                                                 </div>
                                             )
                                         })
@@ -353,7 +359,13 @@ export default function NavigationMenu() {
                                             return (
                                                 <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
                                                     <li ><a className="dropdown-item" href={Element.Link} target='_blank' rel="noreferrer">{Element.Name}</a></li>
-                                                    <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
+                                      {
+                                            IsLoggedIn ? (
+                                                 <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
+                                            ) :
+                                                null
+                                        }
+                                                   
                                                 </div>
                                             )
                                         })
