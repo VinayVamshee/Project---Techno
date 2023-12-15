@@ -17,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px dotted rgb(57, 57, 57);
-  background-color: #333;
+  background-color:  rgb(211, 225, 181);
   position: sticky;
   z-index: 1000;
   top: 0;
@@ -179,7 +179,7 @@ i {
   justify-content: center;
   gap: 20px;
   height: fit-content;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .CarouselDiv {
@@ -221,11 +221,11 @@ i {
 
 .Foot {
   width: 100%;
-  background-color: #333;
+  background-color: #464646;
   color: white;
   position: fixed;
   bottom: 0;
-  height: 60px;
+  height: 50px;
   display: flex;
   align-items: center;
   z-index: 1000;
@@ -238,8 +238,8 @@ i {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 60px;
-  background-color: lightgoldenrodyellow;
+  margin-bottom: 50px;
+  background-color:  rgb(211, 225, 181);
   /* background-blend-mode: multiply;
   color: whitesmoke;  */
 }
