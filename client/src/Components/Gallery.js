@@ -100,9 +100,47 @@ export default function Gallery() {
     }
 
     const handleImageChange = (e) => {
+
         const urls = e.target.value.split(',').map((url) => url.trim());
-        setCard({ ...Card, AdditionalImages: urls });
+        const converturls = (url) => {
+
+            const match = url.match(/\/d\/(.*?)\//);
+
+            const fileId = match ? match[1] : null;
+    
+            const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
+
+            return viewableUrl;
+        }
+        const ConvertedURLs = urls.map(converturls)
+        setCard((prevCard) => ({...prevCard, AdditionalImages: ConvertedURLs}));
     };
+    
+    const ChangeCarouselUrl = (e) => {
+        e.preventDefault();
+        const url = e.target.value;
+
+        const match = url.match(/\/d\/(.*?)\//);
+
+        const fileId = match ? match[1] : null;
+
+        const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
+
+        setCarouselImage({ ...CarouselImage, Image: viewableUrl });
+    }
+
+    const ChangeCardlUrl = (e) => {
+        e.preventDefault();
+        const url = e.target.value;
+
+        const match = url.match(/\/d\/(.*?)\//);
+
+        const fileId = match ? match[1] : null;
+
+        const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
+
+       setCard({ ...Card, MainImage: viewableUrl})
+    }
 
     return (
         <div className='Gallery'>
@@ -230,7 +268,7 @@ export default function Gallery() {
                             </div>
                             <div className="modal-body AddModal">
                                 <label>Card Image:</label>
-                                <input value={Card.MainImage} onChange={(e) => setCard({ ...Card, MainImage: e.target.value })} type='url'></input>
+                                <input value={Card.MainImage} onChange={ChangeCardlUrl} type='url'></input>
                                 <label>Card Description:</label>
                                 <input value={Card.Description} onChange={(e) => setCard({ ...Card, Description: e.target.value })} type='text'></input>
                                 <label>Additional Images:</label>
@@ -258,7 +296,7 @@ export default function Gallery() {
                             </div>
                             <div className="modal-body AddModal">
                                 <label>Image:</label>
-                                <input value={CarouselImage.Image} onChange={(e) => setCarouselImage({ ...CarouselImage, Image: e.target.value })} type='url'></input>
+                                <input value={CarouselImage.Image} onChange={ChangeCarouselUrl} type='url'></input>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
