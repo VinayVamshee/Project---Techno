@@ -228,6 +228,7 @@ i {
   height: 60px;
   display: flex;
   align-items: center;
+  z-index: 1000;
 }
 
 .Home {
