@@ -81,7 +81,6 @@ i {
 .Logo h3 {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
-  color: white;
 }
 
 .Logo h5 {
@@ -331,8 +330,8 @@ i {
   .Logo h5 {
     font-family: "Times New Roman", Times, serif;
     display: contents;
-    color: white;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: bold;
     padding: 5px;
   }
 
