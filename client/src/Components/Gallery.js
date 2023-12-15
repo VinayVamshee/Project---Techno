@@ -220,7 +220,7 @@ export default function Gallery() {
                                                             null
                                                     }
                                                 </div>
-                                                <small className="text-body-secondary">9 mins</small>
+                                                <small className="text-body-secondary">Vamshee Techno School</small>
                                             </div>
                                         </div>
                                     </div>
