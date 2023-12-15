@@ -16,11 +16,15 @@ export default function TeacherInfo() {
     });
 
     const SendTeacherData = async (e) => {
+        e.preventDefault();
         try {
             await axios.post("https://project-techno.vercel.app/TeacherInfo", { ...TeacherData })
-                .then(result => console.log(result))
+               .then(result => {
+                    console.log(result)
+                    alert('Added')
+                    window.location.reload();
+                })
                 .catch(error => console.log(error))
-            alert('Added New Teacher')
         } catch (error) {
             console.log(error);
         }
@@ -56,10 +60,15 @@ export default function TeacherInfo() {
             .catch(error => console.log(error))
     }
 
-    const EditTeacherInfo = async (id) => {
+    const EditTeacherInfo = async (id,e) => {
+        e.preventDefault();
         try {
             axios.put("https://project-techno.vercel.app/EditTeacherInfo/" + id, { ...EditTeacherData })
-                .then(result => console.log(result))
+               .then(result => {
+                    console.log(result)
+                    alert('Edited')
+                    window.location.reload();
+                })
                 .catch(error => console.log(error))
         } catch (error) {
             console.log(error);
@@ -208,7 +217,7 @@ export default function TeacherInfo() {
             <div className="modal fade" id="UpdateModalModal" tabIndex="-1" aria-labelledby="UpdateModalModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
-                        <form onSubmit={() => EditTeacherInfo(EditTeacherData._id)}>
+                        <form onSubmit={(e) => EditTeacherInfo(EditTeacherData._id,e)}>
                             <div className="modal-header">
                                 <h1 className="modal-title fs-5" id="UpdateModalModalLabel">Edit Teacher Info</h1>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
