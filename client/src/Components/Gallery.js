@@ -27,21 +27,30 @@ export default function Gallery() {
         YoutubeLink: ''
     })
 
-    const AddNewCard = async () => {
+    const AddNewCard = async (e) => {
+        e.preventDefault();
         try {
             await axios.post("https://project-techno.vercel.app/AddNewCard", { ...Card })
-                .then(result => console.log(result))
+               .then(result => {
+                    console.log(result)
+                    alert('New Card Added')
+                    window.location.reload();
+                })
                 .catch(error => console.log(error))
-            // alert('Added New Card')
         } catch (error) {
             console.log(error);
         }
     }
 
-    const AddNewCarousel = async () => {
+    const AddNewCarousel = async (e) => {
+        e.preventDefault();
         try {
             await axios.post("https://project-techno.vercel.app/AddNewCarouselImage", { ...CarouselImage })
-                .then(result => console.log(result))
+               .then(result => {
+                console.log(result)
+                alert('New Image Added')
+                window.location.reload();
+            })
                 .catch(error => console.log(error))
             alert('Added New Image')
         } catch (error) {
