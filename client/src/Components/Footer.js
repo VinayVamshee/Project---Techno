@@ -62,9 +62,9 @@ export default function Footer() {
             <span className="mb-md-0">© 2023 Techno School, Edu</span>
           </div>
           <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li className="ms-3"><Link to='/' className="btn btn-outline-primary"><i className="fa-solid fa-house " />Home</Link></li>
-            <li className="ms-3"><button type="button" className="btn btn-outline-secondary" data-bs-target="#ContactModalToggle" data-bs-toggle="modal"><i className="fa-solid fa-user " />Contact Us</button></li>
-            <li className="ms-3"><a className="btn btn-outline-danger" href="https://www.youtube.com/channel/UCsQisHLHtKsIbPFQRpZUZew" target='_blank' rel="noreferrer"><i className="fa-brands fa-youtube " />Youtube</a></li>
+            <li className="ms-3"><Link to='/' className="btn btn-primary"><i className="fa-solid fa-house " />Home</Link></li>
+            <li className="ms-3"><button type="button" className="btn btn-info" data-bs-target="#ContactModalToggle" data-bs-toggle="modal"><i className="fa-solid fa-user " />Contact Us</button></li>
+            <li className="ms-3"><a className="btn btn-danger" href="https://www.youtube.com/channel/UCsQisHLHtKsIbPFQRpZUZew" target='_blank' rel="noreferrer"><i className="fa-brands fa-youtube " />Youtube</a></li>
           </ul>
         </footer>
       </div>
