@@ -145,11 +145,11 @@ export default function Gallery() {
     return (
         <div className='Gallery'>
             <div className='CarouselDiv'>
-                <div id="carouselAutoplaying" className="carousel slide" data-bs-ride="carousel">
+                <div id="carouselAutoplaying" className="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div className="carousel-inner">
                         {
                             AllCarouselImage.length > 0 && (
-                                <div className="carousel-item active">
+                                <div className="carousel-item active" data-bs-interval="1500">
                                     <img src={AllCarouselImage[AllCarouselImage.length - 1].Image} className="d-block" alt="..." />
                                     {
                                         IsLoggedIn ? (
@@ -165,7 +165,7 @@ export default function Gallery() {
                         {
                             AllCarouselImage.slice(0, -1).map((Element, idx) => {
                                 return (
-                                    <div className="carousel-item" key={idx}>
+                                    <div className="carousel-item" key={idx} data-bs-interval="1500">
                                         <img src={Element.Image} className="d-block" alt="..." />
                                         {
                                             IsLoggedIn ? (
