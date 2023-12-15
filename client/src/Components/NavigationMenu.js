@@ -101,7 +101,7 @@ export default function NavigationMenu() {
         }
     }
 
-    const AddNewAdmissionDropDown = async () => {
+    const AddNewAdmissionDropDown = async (e) => {
         try {
             await axios.post('https://project-techno.vercel.app/AddNewAdmissionDropDown', { ...AdmissionsDropdown })
                 .then(result => console.log(result))
@@ -111,7 +111,7 @@ export default function NavigationMenu() {
         }
     }
 
-    const AddNewGalleryDropDown = async () => {
+    const AddNewGalleryDropDown = async (e) => {
         try {
             await axios.post('https://project-techno.vercel.app/AddNewGalleryDropDown', { ...GalleryDropDown })
                 .then(response => {
