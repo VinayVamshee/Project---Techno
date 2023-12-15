@@ -16,7 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px dotted rgb(57, 57, 57);
+  border-bottom: 2px dotted rgb(57, 57, 57);
   background-color:  rgb(211, 225, 181);
   position: sticky;
   z-index: 1000;
