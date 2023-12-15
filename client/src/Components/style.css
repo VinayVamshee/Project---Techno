@@ -270,6 +270,13 @@ i {
   object-fit: contain;
 }
 
+.introaddress{
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  color: red;
+}
+
 .About {
   padding: 20px;
   /* background-blend-mode: multiply; */
@@ -467,7 +474,6 @@ i {
 }
 
 
-
 @media (max-width: 750px) {
   .Excel button {
     font-size: 0px;
@@ -492,14 +498,26 @@ i {
     padding: 2px;
   }
   .NoticeBoard iframe {
-    width: 400px;
-    height: 600px;
+    width: 200%;
+    height: 800px;
   }
 }
 
 @media (max-width: 600px) {
   .Actions form input {
     width: 200px;
+  }
+
+  .Home h1{
+    font-size: 60px;
+  }
+
+  .Intro p{
+    font-size: ;
+  }
+
+  .introaddress{
+    font-size: 10px;
   }
 }
 
