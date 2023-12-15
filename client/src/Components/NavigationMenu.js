@@ -83,7 +83,11 @@ export default function NavigationMenu() {
         e.preventDefault();
         try {
             await axios.post('https://project-techno.vercel.app/AddNewNotice', { ...Notice })
-                .then(result => console.log(result))
+                .then(result => {
+                    console.log(result)
+                alert('Notice Added')
+                window.location.reload();
+                })
                 .catch(error => console.log(error))
         } catch (error) {
             console.log(error);
@@ -94,7 +98,11 @@ export default function NavigationMenu() {
          e.preventDefault();
         try {
             await axios.post('https://project-techno.vercel.app/AddNewAcademicDropDown', { ...AcademicsDropdown })
-                .then(result => console.log(result))
+                 .then(result => {
+                    console.log(result)
+                alert('Dropdown Added')
+                window.location.reload();
+                })
                 .catch(error => console.log(error))
         } catch (error) {
             console.log(error);
@@ -102,9 +110,14 @@ export default function NavigationMenu() {
     }
 
     const AddNewAdmissionDropDown = async (e) => {
+        e.preventDefault();
         try {
             await axios.post('https://project-techno.vercel.app/AddNewAdmissionDropDown', { ...AdmissionsDropdown })
-                .then(result => console.log(result))
+               .then(result => {
+                    console.log(result)
+                alert('Dropdown Added')
+                window.location.reload();
+                })
                 .catch(error => console.log(error))
         } catch (error) {
             console.log(error);
@@ -112,16 +125,16 @@ export default function NavigationMenu() {
     }
 
     const AddNewGalleryDropDown = async (e) => {
+        e.preventDefault();
         try {
             await axios.post('https://project-techno.vercel.app/AddNewGalleryDropDown', { ...GalleryDropDown })
-                .then(response => {
-        console.log(response.status); // Check the status code
-        console.log(response.data);   // Check the response data
-    })
-    .catch(error => {
-        console.error(error);
-    });
-    } catch (error) {
+               .then(result => {
+                    console.log(result)
+                alert('Dropdown Added')
+                window.location.reload();
+                })
+                 .catch(error => console.log(error))
+        } catch (error) {
             console.log(error);
         }
     }
