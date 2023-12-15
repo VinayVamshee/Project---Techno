@@ -22,10 +22,15 @@ export default function Footer() {
     Location: ''
   })
 
-  const SendContactDetails = async () => {
+  const SendContactDetails = async (e) => {
+    e.preventDefault();
     try {
       await axios.post("https://project-techno.vercel.app/AddContactInfo", { ...Contact })
-        .then(result => console.log(result))
+        .then(result => {
+                    console.log(result)
+                    alert('Added')
+                    window.location.reload();
+                })
         .catch(error => console.log(error))
     } catch (error) {
       console.log(error);
