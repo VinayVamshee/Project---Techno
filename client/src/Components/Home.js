@@ -42,7 +42,7 @@ export default function Home() {
                         <p className="lead">In the sensitive task of educating children, parents also have a responsible role to play. Triangular efforts will be beneficial for the complete development of the child. The student’s diary is a tool at your disposal, providing all the information you may wish to know. This will serve as the medium of communication with you about your ward. I kindly request you to spare a little time to read this diary and to place your signature.</p>
                     </div>
                     <div className="col-md-5 order-md-1 CarouselImage">
-                        <div id="carouselExampleAutoplaying" className="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
                                 {
                                     AllCarouselImage.length > 0 && (
