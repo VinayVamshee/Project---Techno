@@ -145,7 +145,7 @@ export default function Gallery() {
     return (
         <div className='Gallery'>
             <div className='CarouselDiv'>
-                <div id="carouselAutoplaying" className="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div id="carouselAutoplaying" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-inner">
                         {
                             AllCarouselImage.length > 0 && (
