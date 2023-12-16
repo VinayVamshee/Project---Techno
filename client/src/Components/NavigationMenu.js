@@ -258,7 +258,7 @@ export default function NavigationMenu() {
                         }
                     </ul>
                 </div>
-                <button type="button" className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" />Notice</button>
+<button type="button" className='NewNoticebtn btn btn-primary' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
                 <Link to='/Gallery' className='btn btn-primary'><i className="fa-regular fa-images" />Gallery</Link>
                 <button type="button" className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
                 {
@@ -372,7 +372,7 @@ export default function NavigationMenu() {
                                     }
                                 </ul>
                             </div>
-                            <button type="button" className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" />Notice</button>
+<button type="button" className='NewNoticebtn btn btn-primary' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
                             <Link to='/Gallery' className='btn btn-primary'><i className="fa-regular fa-images" />Gallery</Link>
                             <button type="button" className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
                             {
