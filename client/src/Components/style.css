@@ -27,6 +27,28 @@ i {
   margin-left: 3px;
 }
 
+.NewNoticebtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.NewNoticebtn span{
+  padding-right: 2px;
+  animation: 1s blink infinite;
+}
+
+@keyframes blink {
+  0%, 100%{
+    opacity: 1.0;
+    color: red;
+  }  
+  50% {
+    opacity: 0.0;
+  }
+}
+
 .calendar iframe {
   width: 500px;
   height: 500px;
