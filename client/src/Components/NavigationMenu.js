@@ -343,7 +343,7 @@ export default function NavigationMenu() {
                             AllDownloadDropDown.map((Element, idx) => {
                                 return (
                                     <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
-                                        <li ><a className="dropdown-item" href={Element.Link} download='Download'>{Element.Name}</a></li>
+                                        <li ><a className="dropdown-item" href={Element.Link.replace("/edit", "/export?format=pdf")} download>{Element.Name}</a></li>
                                         {
                                             IsLoggedIn ? (
                                                 <button className='btn btn-danger' onClick={() => DeleteDownloadDropDown(Element._id)}>Delete</button>
