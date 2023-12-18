@@ -214,9 +214,9 @@ export default function NavigationMenu() {
                 }
             </div>
             <div className='NavButtons'>
-                <Link to='/' className='btn btn-primary'>Home</Link>
+                <Link to='/' className='btn '>Home</Link>
                 <div className="dropdown">
-                    <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i className="fa-solid fa-paperclip " />Academics
                     </button>
                     <ul className="dropdown-menu">
@@ -241,7 +241,7 @@ export default function NavigationMenu() {
                     </ul>
                 </div>
                 <div className="dropdown">
-                    <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i className="fa-solid fa-paperclip " />Admissions
                     </button>
                     <ul className="dropdown-menu">
@@ -262,9 +262,9 @@ export default function NavigationMenu() {
                         }
                     </ul>
                 </div>
-<button type="button" className='NewNoticebtn btn btn-primary' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
-                <Link to='/Gallery' className='btn btn-primary'><i className="fa-regular fa-images" />Gallery</Link>
-                <button type="button" className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
+<button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
+                <Link to='/Gallery' className='btn '><i className="fa-regular fa-images" />Gallery</Link>
+                <button type="button" className='btn ' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
                 {
                     IsLoggedIn ? (
                         <>
@@ -276,7 +276,7 @@ export default function NavigationMenu() {
                         null
                 }
                 <div className="dropdown">
-                    <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i className="fa-solid fa-paperclip " />Gallery Links
                     </button>
                     <ul className="dropdown-menu">
@@ -299,7 +299,7 @@ export default function NavigationMenu() {
                 </div>
 
 
-                <button className='btn btn-primary disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
+                <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
             </div>
 
             <div className='Authenticate'>
@@ -329,9 +329,9 @@ export default function NavigationMenu() {
                             <h5>School</h5>
                         </div>
                         <div className='NavButtons'>
-                            <Link to='/' className='btn btn-primary'>Home</Link>
+                            <Link to='/' className='btn '>Home</Link>
                             <div className="dropend">
-                                <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i className="fa-solid fa-paperclip " />Academics
                                 </button>
                                 <ul className="dropdown-menu">
@@ -354,7 +354,7 @@ export default function NavigationMenu() {
                                 </ul>
                             </div>
                             <div className="dropend">
-                                <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i className="fa-solid fa-paperclip " />Admissions
                                 </button>
                                 <ul className="dropdown-menu">
@@ -376,9 +376,9 @@ export default function NavigationMenu() {
                                     }
                                 </ul>
                             </div>
-<button type="button" className='NewNoticebtn btn btn-primary' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
-                            <Link to='/Gallery' className='btn btn-primary'><i className="fa-regular fa-images" />Gallery</Link>
-                            <button type="button" className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
+<button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
+                            <Link to='/Gallery' className='btn '><i className="fa-regular fa-images" />Gallery</Link>
+                            <button type="button" className='btn ' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
                             {
                                 IsLoggedIn ? (
                                     <>
@@ -390,7 +390,7 @@ export default function NavigationMenu() {
                                     null
                             }
                             <div className="dropend">
-                                <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i className="fa-solid fa-paperclip " />Gallery Links
                                 </button>
                                 <ul className="dropdown-menu">
@@ -413,7 +413,7 @@ export default function NavigationMenu() {
                             </div>
 
 
-                            <button className='btn btn-primary disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
+                            <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
                             {
                                 IsLoggedIn ? (
                                     <>
@@ -447,7 +447,7 @@ export default function NavigationMenu() {
                                     <input type="password" className="form-control rounded-3" id="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password" />
                                     <label>Password</label>
                                 </div>
-                                <button className="w-25 mb-2 btn btn-primary" type="submit">Log In</button>
+                                <button className="w-25 mb-2 btn " type="submit">Log In</button>
                             </form>
                         </div>
                     </div>
@@ -474,7 +474,7 @@ export default function NavigationMenu() {
                                     <input type="password" className="form-control rounded-3" id="Registerpassword" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="" />
                                     <label>Password</label>
                                 </div>
-                                <button className="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Register</button>
+                                <button className="w-100 mb-2 btn btn-lg rounded-3 " data-bs-dismiss="modal" type="submit">Register</button>
                             </form>
                         </div>
                     </div>
