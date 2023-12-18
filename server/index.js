@@ -279,7 +279,7 @@ app.get('/GetDownloadDropDown', (req, res) => {
         .catch(error => res.json(error))
 });
 
-app.delete('/DownloadGalleryDropDown/:id', (req, res) => {
+app.delete('/DeleteDownloadDropDown/:id', (req, res) => {
     const id = req.params.id;
     DownloadDropDownSchema.findByIdAndDelete({ _id: id })
         .then(result => res.json(result))
