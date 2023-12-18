@@ -447,7 +447,7 @@ export default function NavigationMenu() {
                                     <input type="password" className="form-control rounded-3" id="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Password" />
                                     <label>Password</label>
                                 </div>
-                                <button className="w-25 mb-2 btn " type="submit">Log In</button>
+                                <button className="w-25 mb-2 btn btn-primary" type="submit">Log In</button>
                             </form>
                         </div>
                     </div>
@@ -474,7 +474,7 @@ export default function NavigationMenu() {
                                     <input type="password" className="form-control rounded-3" id="Registerpassword" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="" />
                                     <label>Password</label>
                                 </div>
-                                <button className="w-100 mb-2 btn btn-lg rounded-3 " data-bs-dismiss="modal" type="submit">Register</button>
+                                <button className="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Register</button>
                             </form>
                         </div>
                     </div>
