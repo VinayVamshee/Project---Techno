@@ -324,10 +324,6 @@ export default function NavigationMenu() {
                     <i className="fa-solid fa-bars text-dark"></i> <p>Vamshee Techno School</p>
                 </button>
                     <ul className="dropdown-menu">
-                        <div className='Logo'>
-                            <h3>Vamshee Techno School</h3>
-                            <h5>School</h5>
-                        </div>
                         <div className='NavButtons'>
                             <Link to='/' className='btn '>Home</Link>
                             <div className="dropend">
