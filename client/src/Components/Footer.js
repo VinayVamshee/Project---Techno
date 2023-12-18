@@ -65,6 +65,7 @@ export default function Footer() {
             <li className="ms-3"><Link to='/' className="btn btn-primary"><i className="fa-solid fa-house " />Home</Link></li>
             <li className="ms-3"><button type="button" className="btn btn-info" data-bs-target="#ContactModalToggle" data-bs-toggle="modal"><i className="fa-solid fa-user " />Contact Us</button></li>
             <li className="ms-3"><a className="btn btn-danger" href="https://www.youtube.com/channel/UCsQisHLHtKsIbPFQRpZUZew" target='_blank' rel="noreferrer"><i className="fa-brands fa-youtube " />Youtube</a></li>
+    <li className="ms-3"><a className="btn btn-danger" href="https://www.instagram.com/technoschool_bsp/" target='_blank' rel="noreferrer"><i className="fa-brands fa-instagram"/>Instagram</a></li>
           </ul>
         </footer>
       </div>
@@ -87,9 +88,10 @@ export default function Footer() {
                 AllContact.map((Element, idx) => {
                   return (
                     <div className='AddModal' key={idx}>
-                      <label style={{ fontFamily: 'impact', fontSize: '17px' }}><i className="fa-solid fa-envelope " />Email : <p style={{ fontFamily: 'sans-serif' }}>{Element.Email}</p></label>
-                      <label style={{ fontFamily: 'impact', fontSize: '17px' }}><i className="fa-solid fa-phone " />Phone Number : <p style={{ fontFamily: 'sans-serif' }}>{Element.PhoneNo}</p></label>
-                      <label style={{ fontFamily: 'impact', fontSize: '17px' }}><i className="fa-solid fa-location-dot " />School Address : <p style={{ fontFamily: 'sans-serif' }}>{Element.Location}</p></label>
+                      <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-envelope " />Email : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.Email}</p></label>
+                      <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-phone " />Phone Number : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.PhoneNo}</p></label>
+                      <label style={{{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-location-dot " />School Address : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.Location}</p></label>
+  <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-location-dot " />Location : <a href='https://maps.app.goo.gl/cstLpnvmpNTHA3c5A' target='_blank' rel="noreferrer" style={{ fontFamily: 'sans-serif', color:'black' }}>[https://maps.app.goo.gl/cstLpnvmpNTHA3c5A]</a></label>
                       {
                         IsLoggedIn ? (
                           <div>
