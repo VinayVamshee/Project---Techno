@@ -90,8 +90,8 @@ export default function Footer() {
                     <div className='AddModal' key={idx}>
                       <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-envelope " />Email : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.Email}</p></label>
                       <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-phone " />Phone Number : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.PhoneNo}</p></label>
-                      <label style={{{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-location-dot " />School Address : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.Location}</p></label>
-  <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-location-dot " />Location : <a href='https://maps.app.goo.gl/cstLpnvmpNTHA3c5A' target='_blank' rel="noreferrer" style={{ fontFamily: 'sans-serif', color:'black' }}>[https://maps.app.goo.gl/cstLpnvmpNTHA3c5A]</a></label>
+                      <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-location-dot " />School Address : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.Location}</p></label>
+                      <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-location-dot " />Location : <a href='https://maps.app.goo.gl/cstLpnvmpNTHA3c5A' target='_blank' rel="noreferrer" style={{ fontFamily: 'sans-serif', color:'black' }}>[https://maps.app.goo.gl/cstLpnvmpNTHA3c5A]</a></label>
                       {
                         IsLoggedIn ? (
                           <div>
