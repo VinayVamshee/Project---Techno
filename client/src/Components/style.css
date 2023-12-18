@@ -283,6 +283,11 @@ i {
   font-size: larger;
 }
 
+.lead{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .Intro img {
   height: 300px;
   width: fit-content;
