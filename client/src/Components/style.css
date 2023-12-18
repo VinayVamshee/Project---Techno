@@ -18,7 +18,10 @@
   align-items: center;
   border-bottom: .5px solid rgb(57, 57, 57);
   box-shadow: 1px 1px 10px black;
-  background-color:  rgb(211, 225, 181);
+  /* background-color:  rgb(211, 225, 181); */
+  background-image: url('./Images/Wallpaper4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   position: sticky;
   z-index: 1000;
   top: 0;
@@ -63,6 +66,12 @@ i {
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+.calendar .modal-header span{
+  font-size: larger;
+  color: red;
+  animation: .45s blink infinite;
 }
 
 .Menu {
@@ -114,6 +123,17 @@ i {
   justify-content: center;
   gap: 10px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.NavButtons .btn{
+  font-weight: bold;
+  transition: .5s ease-in-out;
+}
+
+.NavButtons .btn:hover{
+transform: scale(1.1);
+transition: .5s ease-in-out;
+color: blue;
 }
 
 .Authenticate {
@@ -191,7 +211,8 @@ i {
 }
 
 .Gallery {
-  background-color: rgb(211, 225, 181);
+  /* background-color: rgb(211, 225, 181); */
+  background-image: url('./Images/Wallpaper4.jpg');
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -211,20 +232,26 @@ i {
 }
 
 .CarouselDiv .carousel-item img {
-  height: 400px;
+  height: 600px;
   width: 100%;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 50px;
 }
 
 .CarouselDiv .carousel {
-  width: 800px;
+  width: 1200px;
 }
 
 .card img {
   width: 100%;
   height: 320px;
   object-fit: cover;
+  border-radius: 30px;
+}
+
+.card {
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
 }
 
 .AdditionalImages {
@@ -259,7 +286,11 @@ i {
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 50px;
-  background-color:  rgb(211, 225, 181);
+  background-image: url('./Images/Wallpaper5.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: linear-gradient(vertical #f0ec9a red ); */
+  /* background-color: #f0ec9a; */
   /* background-blend-mode: multiply;
   color: whitesmoke;  */
 }
@@ -299,7 +330,6 @@ i {
   font-weight: bold;
   font-size: 20px;
   font-family: 'Times New Roman', Times, serif;
-  color: red;
 }
 
 .About {
@@ -326,7 +356,7 @@ i {
 
 .About p {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: larger;
+  font-size: 20px;
   font-weight: 500;
 }
 
@@ -347,10 +377,6 @@ i {
   }
   .Logo {
     padding: 5px;
-  }
-
-  .Logo h3 {
-
   }
 
   .NavButtons {
@@ -539,6 +565,7 @@ i {
 }
 
 @media (max-width: 570px) {
+  
   .Intro img {
     height: 200px;
   }
