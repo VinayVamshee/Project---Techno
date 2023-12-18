@@ -13,6 +13,7 @@ const NoticeSchema = require('./models/Notice')
 const AcademicSchema = require('./models/Academics')
 const AdmissionSchema = require('./models/Admission')
 const GalleryDropDownSchema = require('./models/GalleryDropDown')
+const DownloadDropDownSchema = require('./models/DownloadDropDown')
 const jwt = require('jsonwebtoken')
 
 const app = express();
@@ -264,7 +265,27 @@ app.delete('/DeleteGalleryDropDown/:id', (req, res) => {
     GalleryDropDownSchema.findByIdAndDelete({ _id: id })
         .then(result => res.json(result))
         .catch(error => res.json(error))
-})
+});
+
+app.post("/AddNewDownloadDropDown", (req, res) => {
+    DownloadDropDownSchema.create(req.body)
+        .then(result => res.json(result))
+        .catch(error => res.json(error))
+});
+
+app.get('/GetDownloadDropDown', (req, res) => {
+    DownloadDropDownSchema.find({})
+        .then(result => res.json(result))
+        .catch(error => res.json(error))
+});
+
+app.delete('/DownloadGalleryDropDown/:id', (req, res) => {
+    const id = req.params.id;
+    DownloadDropDownSchema.findByIdAndDelete({ _id: id })
+        .then(result => res.json(result))
+        .catch(error => res.json(error))
+});
+
 
 
 
