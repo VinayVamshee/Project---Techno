@@ -206,8 +206,12 @@ export default function NavigationMenu() {
     return (<>
         <div className='NavigatioinMenu'>
             <div className='Logo'>
-                <h3>Vamshee Techno School</h3>
-                <h5>School</h5>
+        {
+                    IsLoggedIn ? (
+                        <h3>School</h3>
+                    ):
+                    <h3>Vamshee Techno School</h3>
+                }
             </div>
             <div className='NavButtons'>
                 <Link to='/' className='btn btn-primary'>Home</Link>
