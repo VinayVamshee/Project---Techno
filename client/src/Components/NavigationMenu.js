@@ -320,9 +320,9 @@ export default function NavigationMenu() {
 
         <div className='Menu'>
                 <div className="dropdown">
-                    <button className="btn text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i className="fa-solid fa-bars "></i>
-                    </button>
+                    <button className="btn text-dark menutab" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i className="fa-solid fa-bars text-dark"></i> <p>Vamshee Techno School</p>
+                </button>
                     <ul className="dropdown-menu">
                         <div className='Logo'>
                             <h3>Vamshee Techno School</h3>
