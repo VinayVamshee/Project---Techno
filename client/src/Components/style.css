@@ -16,11 +16,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px dotted rgb(57, 57, 57);
+  border-bottom: .5px solid rgb(57, 57, 57);
+  box-shadow: 1px 1px 10px black;
   background-color:  rgb(211, 225, 181);
   position: sticky;
   z-index: 1000;
   top: 0;
+  border-radius: 5px;
 }
 i {
   margin-right: 3px;
@@ -36,13 +38,14 @@ i {
 
 .NewNoticebtn span{
   padding-right: 2px;
-  animation: 1s blink infinite;
+  animation: .45s blink infinite;
+  color: red;
+  font-weight: bold;
 }
 
 @keyframes blink {
   0%, 100%{
     opacity: 1.0;
-    color: red;
   }  
   50% {
     opacity: 0.0;
@@ -103,10 +106,6 @@ i {
 .Logo h3 {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
-}
-
-.Logo h5 {
-  display: none;
 }
 
 .NavButtons {
@@ -326,7 +325,7 @@ i {
   font-weight: 500;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1400px) {
   * {
     font-size: 13px;
   }
@@ -346,15 +345,7 @@ i {
   }
 
   .Logo h3 {
-    display: none;
-  }
 
-  .Logo h5 {
-    font-family: "Times New Roman", Times, serif;
-    display: contents;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 5px;
   }
 
   .NavButtons {
