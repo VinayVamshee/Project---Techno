@@ -79,6 +79,11 @@ export default function NavigationMenu() {
         Link: ''
     })
 
+    const [DownloadDropDown, setDownloadDropDown] = useState({
+        Name: '',
+        Link: ''
+    })
+
     const AddNewNotice = async (e) => {
         e.preventDefault();
         try {
@@ -138,12 +143,28 @@ export default function NavigationMenu() {
             console.log(error);
         }
     }
+
+    const AddNewDownloadDropDown = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post('https://project-techno.vercel.app/AddNewDownloadDropDown', { ...DownloadDropDown })
+                .then(result => {
+                    console.log(result)
+                    alert('Added')
+                    window.location.reload();
+                })
+                .catch(error => console.log(error))
+        } catch (error) {
+            console.log(error);
+        }
+    }
        
 
     const [AllNotice, setAllNotice] = useState([]);
     const [AllAcademicDropDown, setAllAcademicDropDown] = useState([]);
     const [AllAdmissionDropDown, setAllAdmissionDropDown] = useState([]);
     const [AllGalleryDropDown, setAllGalleryDropDown] = useState([]);
+    const [AllDownloadDropDown, setAllDownloadDropDown] = useState([]);
 
     useEffect(() => {
         axios.get('https://project-techno.vercel.app/GetNotice')
@@ -166,6 +187,12 @@ export default function NavigationMenu() {
     useEffect(() => {
         axios.get('https://project-techno.vercel.app/GetGalleryDropDown')
             .then(result => setAllGalleryDropDown(result.data))
+            .catch(error => console.log(error))
+    }, [])
+
+     useEffect(() => {
+        axios.get('https://project-techno.vercel.app/GetDownloadDropDown')
+            .then(result => setAllDownloadDropDown(result.data))
             .catch(error => console.log(error))
     }, [])
 
@@ -203,6 +230,15 @@ export default function NavigationMenu() {
             .catch(error => console.log(error))
     }
 
+    const DeleteDownloadDropDown = async (id) => {
+        axios.delete('https://project-techno.vercel.app/DeleteDownloadDropDown/' + id)
+            .then(result => {
+                console.log(result)
+                window.location.reload();
+            })
+            .catch(error => console.log(error))
+    }
+
     return (<>
         <div className='NavigatioinMenu'>
             <div className='Logo'>
@@ -224,7 +260,7 @@ export default function NavigationMenu() {
                             AllAcademicDropDown.map((Element, idx) => {
                                 return (
                                     <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
-                                        <li ><a className="dropdown-item" href={Element.Link} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
+                                        <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                        {
                                             IsLoggedIn ? (
                                                 <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
@@ -249,7 +285,7 @@ export default function NavigationMenu() {
                             AllAdmissionDropDown.map((Element, idx) => {
                                 return (
                                     <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
-                                        <li ><a className="dropdown-item" href={Element.Link} target='_blank' rel="noreferrer">{Element.Name}</a></li>
+                                        <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                            {
                                             IsLoggedIn ? (
                                                 <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
@@ -298,6 +334,29 @@ export default function NavigationMenu() {
                     </ul>
                 </div>
 
+                        <div className="dropdown">
+                    <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-download"/>Downloads
+                    </button>
+                    <ul className="dropdown-menu">
+                        {
+                            AllDownloadDropDown.map((Element, idx) => {
+                                return (
+                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                        <li ><a className="dropdown-item" href={Element.Link} download='Download'>{Element.Name}</a></li>
+                                        {
+                                            IsLoggedIn ? (
+                                                <button className='btn btn-danger' onClick={() => DeleteDownloadDropDown(Element._id)}>Delete</button>
+                                            ) :
+                                                null
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+
 
                 <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
             </div>
@@ -335,7 +394,7 @@ export default function NavigationMenu() {
                                         AllAcademicDropDown.map((Element, idx) => {
                                             return (
                                                 <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
-                                                    <li ><a className="dropdown-item" href={Element.Link} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
+                                                    <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
             {
                                             IsLoggedIn ? (
                                                 <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
@@ -358,7 +417,7 @@ export default function NavigationMenu() {
                                         AllAdmissionDropDown.map((Element, idx) => {
                                             return (
                                                 <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
-                                                    <li ><a className="dropdown-item" href={Element.Link} target='_blank' rel="noreferrer">{Element.Name}</a></li>
+                                                    <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                       {
                                             IsLoggedIn ? (
                                                  <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
@@ -398,6 +457,29 @@ export default function NavigationMenu() {
                                                     {
                                                         IsLoggedIn ? (
                                                             <button className='btn btn-danger' onClick={() => DeleteGalleryDropDown(Element._id)}>Delete</button>
+                                                        ) :
+                                                            null
+                                                    }
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </div>
+
+                                    <div className="dropdown">
+                                <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-download" />Downloads
+                                </button>
+                                <ul className="dropdown-menu">
+                                    {
+                                        AllDownloadDropDown.map((Element, idx) => {
+                                            return (
+                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                                    <li ><a className="dropdown-item" href={Element.Link.replace("/edit", "/export?format=pdf")} download>{Element.Name}</a></li>
+                                                    {
+                                                        IsLoggedIn ? (
+                                                            <button className='btn btn-danger' onClick={() => DeleteDownloadDropDown(Element._id)}>Delete</button>
                                                         ) :
                                                             null
                                                     }
@@ -510,7 +592,7 @@ export default function NavigationMenu() {
                                     AllNotice.map((Element, idx) => {
                                         return (
                                             <div key={idx} className='SingleNotice'>
-                                                <iframe title="PDF Viewer" src={Element.Link} />
+                                                <iframe title="PDF Viewer" src={Element.Link.replace('/edit', '/preview')} />
                                                 {
                                                     IsLoggedIn ? (
                                                         <div>
@@ -575,6 +657,14 @@ export default function NavigationMenu() {
                                 <input type='text' value={GalleryDropDown.Name} onChange={(e) => setGalleryDropDown({ ...GalleryDropDown, Name: e.target.value })} />
                                 <label>Link:</label>
                                 <input type='url' value={GalleryDropDown.Link} onChange={(e) => setGalleryDropDown({ ...GalleryDropDown, Link: e.target.value })} />
+                                <button type='submit' className='btn btn-warning w-25 mt-1'>Add</button>
+                            </form>
+                <h3>Downloads</h3>
+                            <form className='AddModal' onSubmit={AddNewDownloadDropDown}>
+                                <label>Name:</label>
+                                <input type='text' value={DownloadDropDown.Name} onChange={(e) => setDownloadDropDown({ ...DownloadDropDown, Name: e.target.value })} />
+                                <label>Link:</label>
+                                <input type='url' value={DownloadDropDown.Link} onChange={(e) => setDownloadDropDown({ ...DownloadDropDown, Link: e.target.value })} />
                                 <button type='submit' className='btn btn-warning w-25 mt-1'>Add</button>
                             </form>
                         </div>
