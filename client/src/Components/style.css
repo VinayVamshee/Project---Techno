@@ -578,6 +578,11 @@ color: blue;
   .introaddress{
     font-size: 10px;
   }
+
+  .footericon{
+    font-size: 0px;
+    border-radius: 50%;
+  }
 }
 
 @media (max-width: 570px) {
