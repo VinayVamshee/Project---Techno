@@ -244,7 +244,7 @@ export default function NavigationMenu() {
             <div className='Logo'>
         {
                     IsLoggedIn ? (
-                        <h3>School</h3>
+                        null
                     ):
                     <h3>Vamshee Techno School</h3>
                 }
