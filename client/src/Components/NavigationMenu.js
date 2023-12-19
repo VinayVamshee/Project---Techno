@@ -259,7 +259,7 @@ export default function NavigationMenu() {
                         {
                             AllAcademicDropDown.map((Element, idx) => {
                                 return (
-                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
                                         <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                        {
                                             IsLoggedIn ? (
@@ -284,7 +284,7 @@ export default function NavigationMenu() {
                         {
                             AllAdmissionDropDown.map((Element, idx) => {
                                 return (
-                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
                                         <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                            {
                                             IsLoggedIn ? (
@@ -319,7 +319,7 @@ export default function NavigationMenu() {
                         {
                             AllGalleryDropDown.map((Element, idx) => {
                                 return (
-                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
                                         <li ><a className="dropdown-item" href={Element.Link} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                         {
                                             IsLoggedIn ? (
@@ -342,7 +342,7 @@ export default function NavigationMenu() {
                         {
                             AllDownloadDropDown.map((Element, idx) => {
                                 return (
-                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
                                         <li ><a className="dropdown-item" href={Element.Link.replace("/edit", "/export?format=pdf")} download>{Element.Name}</a></li>
                                         {
                                             IsLoggedIn ? (
@@ -393,7 +393,7 @@ export default function NavigationMenu() {
                                     {
                                         AllAcademicDropDown.map((Element, idx) => {
                                             return (
-                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
                                                     <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
             {
                                             IsLoggedIn ? (
@@ -416,7 +416,7 @@ export default function NavigationMenu() {
                                     {
                                         AllAdmissionDropDown.map((Element, idx) => {
                                             return (
-                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
                                                     <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                       {
                                             IsLoggedIn ? (
@@ -452,7 +452,7 @@ export default function NavigationMenu() {
                                     {
                                         AllGalleryDropDown.map((Element, idx) => {
                                             return (
-                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
                                                     <li ><a className="dropdown-item" href={Element.Link} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                                     {
                                                         IsLoggedIn ? (
@@ -475,7 +475,7 @@ export default function NavigationMenu() {
                                     {
                                         AllDownloadDropDown.map((Element, idx) => {
                                             return (
-                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px' }}>
+                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
                                                     <li ><a className="dropdown-item" href={Element.Link.replace("/edit", "/export?format=pdf")} download>{Element.Name}</a></li>
                                                     {
                                                         IsLoggedIn ? (
