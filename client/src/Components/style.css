@@ -213,6 +213,8 @@ color: blue;
 .Gallery {
   /* background-color: rgb(211, 225, 181); */
   background-image: url('./Images/Wallpaper4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 10px;
   display: flex;
   flex-direction: column;
