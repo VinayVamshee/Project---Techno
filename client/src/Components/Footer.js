@@ -64,8 +64,8 @@ export default function Footer() {
           <ul className="nav col-md-5 justify-content-end list-unstyled d-flex">
             <li className="ms-3"><Link to='/' className="btn btn-primary"><i className="fa-solid fa-house " />Home</Link></li>
             <li className="ms-3"><button type="button" className="btn btn-info" data-bs-target="#ContactModalToggle" data-bs-toggle="modal"><i className="fa-solid fa-user " />Contact Us</button></li>
-            <li className="ms-3"><a className="btn btn-danger" href="https://www.youtube.com/channel/UCsQisHLHtKsIbPFQRpZUZew" target='_blank' rel="noreferrer"><i className="fa-brands fa-youtube " />Youtube</a></li>
-            <li className="ms-3"><a className="btn btn-danger" href="https://www.instagram.com/technoschool_bsp/" target='_blank' rel="noreferrer"><i className="fa-brands fa-instagram"/>Instagram</a></li>
+            <li className="ms-3"><a className="btn btn-danger footericon" href="https://www.youtube.com/channel/UCsQisHLHtKsIbPFQRpZUZew" target='_blank' rel="noreferrer"><i className="fa-brands fa-youtube " />Youtube</a></li>
+            <li className="ms-3"><a className="btn btn-danger footericon" href="https://www.instagram.com/technoschool_bsp/" target='_blank' rel="noreferrer"><i className="fa-brands fa-instagram"/>Instagram</a></li>
           </ul>
         </footer>
       </div>
