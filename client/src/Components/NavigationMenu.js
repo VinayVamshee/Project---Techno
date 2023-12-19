@@ -651,7 +651,7 @@ export default function NavigationMenu() {
                                 <input type='url' value={AdmissionsDropdown.Link} onChange={(e) => setAdmissionsDropdown({ ...AdmissionsDropdown, Link: e.target.value })} />
                                 <button type='submit' className='btn btn-warning w-25 mt-1'>Add</button>
                             </form>
-                            <h3>AllGallery</h3>
+                            <h3>Gallery Links</h3>
                             <form className='AddModal' onSubmit={AddNewGalleryDropDown}>
                                 <label>Name:</label>
                                 <input type='text' value={GalleryDropDown.Name} onChange={(e) => setGalleryDropDown({ ...GalleryDropDown, Name: e.target.value })} />
