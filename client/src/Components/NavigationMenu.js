@@ -288,7 +288,7 @@ export default function NavigationMenu() {
                                         <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                            {
                                             IsLoggedIn ? (
-                                                <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
+                                                <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
                                             ) :
                                                 null
                                         }
