@@ -213,13 +213,13 @@ export default function Gallery() {
                                             <div className="d-flex justify-content-between align-items-center">
                                                 <div className="btn-group">
                                                     <button type="button" className="btn btn-sm btn-outline-primary" onClick={() => GetGalleryImages(Element._id)} data-bs-toggle="modal" data-bs-target="#ViewMoreModal">View More...</button>
-<a type="button" href={Element.YoutubeLink} target='_blank' rel="noreferrer" className="btn btn-sm btn-outline-danger ms-1 rounded-circle"><i className="fa-brands fa-youtube " /></a>
                                                     {
                                                         IsLoggedIn ? (
                                                             <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => DeleteCard(Element._id)}><i className="fa-solid fa-trash " />Delete</button>
                                                         ) :
                                                             null
                                                     }
+                                                            <a type="button" href={Element.YoutubeLink} target='_blank' rel="noreferrer" className="btn btn-sm btn-outline-danger ms-1 rounded-circle"><i className="fa-brands fa-youtube " /></a>
                                                 </div>
                                                 <small className="text-body-secondary">Vamshee Techno School</small>
                                             </div>
