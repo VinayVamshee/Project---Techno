@@ -203,7 +203,7 @@ export default function Gallery() {
             <div className='Gallery-Cards'>
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     {
-                        AllCard.map((Element, idx) => {
+                        AllCard.slice().reverse().map((Element, idx) => {
                             return (
                                 <div className="col" key={idx}>
                                     <div className="card shadow-sm">
