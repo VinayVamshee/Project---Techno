@@ -133,13 +133,19 @@ export default function Gallery() {
         e.preventDefault();
         const url = e.target.value;
 
+         if (!url.includes("drive.google.com")) {
+             setCard({ ...Card, MainImage: url })
+         }
+        else{
+            
+
         const match = url.match(/\/d\/(.*?)\//);
 
         const fileId = match ? match[1] : null;
 
         const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
-
        setCard({ ...Card, MainImage: viewableUrl})
+        }
     }
 
     return (
