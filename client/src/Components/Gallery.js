@@ -31,7 +31,7 @@ export default function Gallery() {
         e.preventDefault();
         try {
             await axios.post("https://project-techno.vercel.app/AddNewCard", { ...Card })
-               .then(result => {
+                .then(result => {
                     console.log(result)
                     alert('New Card Added')
                     window.location.reload();
@@ -46,13 +46,12 @@ export default function Gallery() {
         e.preventDefault();
         try {
             await axios.post("https://project-techno.vercel.app/AddNewCarouselImage", { ...CarouselImage })
-               .then(result => {
-                console.log(result)
-                alert('New Image Added')
-                window.location.reload();
-            })
+                .then(result => {
+                    console.log(result)
+                    alert('New Image Added')
+                    window.location.reload();
+                })
                 .catch(error => console.log(error))
-            alert('Added New Image')
         } catch (error) {
             console.log(error);
         }
@@ -100,62 +99,70 @@ export default function Gallery() {
     }
 
     const handleImageChange = (e) => {
-
         const urls = e.target.value.split(',').map((url) => url.trim());
-        const converturls = (url) => {
+    
+        const convertUrl = (url) => {
+            if (!url.includes("drive.google.com")) {
+                return url;
+            }
+    
+            const match = url.match(/\/d\/(.*?)\//);
+            const fileId = match ? match[1] : null;
+            const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
+    
+            return viewableUrl;
+        };
+    
+        const convertedURLs = urls.map(convertUrl);
+        setCard((prevCard) => ({ ...prevCard, AdditionalImages: convertedURLs }));
+    };
+    
 
+    const ChangeCarouselUrl = (e) => {
+        const url = e.target.value;
+
+        if (!url.includes("drive.google.com")) {
+            setCarouselImage({ ...CarouselImage, Image: url })
+        }
+        else {
             const match = url.match(/\/d\/(.*?)\//);
 
             const fileId = match ? match[1] : null;
-    
+
             const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
 
-            return viewableUrl;
+            setCarouselImage({ ...CarouselImage, Image: viewableUrl });
         }
-        const ConvertedURLs = urls.map(converturls)
-        setCard((prevCard) => ({...prevCard, AdditionalImages: ConvertedURLs}));
-    };
-    
-    const ChangeCarouselUrl = (e) => {
-        e.preventDefault();
-        const url = e.target.value;
 
-        const match = url.match(/\/d\/(.*?)\//);
 
-        const fileId = match ? match[1] : null;
-
-        const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
-
-        setCarouselImage({ ...CarouselImage, Image: viewableUrl });
     }
 
     const ChangeCardlUrl = (e) => {
         e.preventDefault();
         const url = e.target.value;
 
-         if (!url.includes("drive.google.com")) {
-             setCard({ ...Card, MainImage: url })
-         }
-        else{
-            
+        if (!url.includes("drive.google.com")) {
+            setCard({ ...Card, MainImage: url })
+        }
+        else {
+            const match = url.match(/\/d\/(.*?)\//);
 
-        const match = url.match(/\/d\/(.*?)\//);
+            const fileId = match ? match[1] : null;
 
-        const fileId = match ? match[1] : null;
+            const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
 
-        const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
-       setCard({ ...Card, MainImage: viewableUrl})
+            setCard({ ...Card, MainImage: viewableUrl });
         }
     }
 
     return (
         <div className='Gallery'>
             <div className='CarouselDiv'>
-                <div id="carouselAutoplaying" className="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-inner">
                         {
                             AllCarouselImage.length > 0 && (
-                                <div className="carousel-item active" data-bs-interval="1500">
+                                <div className="carousel-item active" data-bs-interval="1500" >
                                     <img src={AllCarouselImage[AllCarouselImage.length - 1].Image} className="d-block" alt="..." />
                                     {
                                         IsLoggedIn ? (
@@ -171,7 +178,7 @@ export default function Gallery() {
                         {
                             AllCarouselImage.slice(0, -1).map((Element, idx) => {
                                 return (
-                                    <div className="carousel-item" key={idx} data-bs-interval="1500">
+                                    <div className="carousel-item" data-bs-interval="1500" key={idx}>
                                         <img src={Element.Image} className="d-block" alt="..." />
                                         {
                                             IsLoggedIn ? (
@@ -186,11 +193,11 @@ export default function Gallery() {
                             })
                         }
                     </div>
-                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
+                    <button className="carousel-control-prev" style={{height: '500px'}} type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span className="visually-hidden">Previous</span>
                     </button>
-                    <button className="carousel-control-next" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="next">
+                    <button className="carousel-control-next" style={{height: '500px'}} type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                         <span className="visually-hidden">Next</span>
                     </button>
@@ -212,7 +219,7 @@ export default function Gallery() {
                         AllCard.slice().reverse().map((Element, idx) => {
                             return (
                                 <div className="col" key={idx}>
-                                    <div className="card shadow-sm">
+                                    <div className="card shadow-sm" >
                                         <img src={Element.MainImage} alt='...' />
                                         <div className="card-body">
                                             <p className="card-text">{Element.Description}</p>
@@ -225,9 +232,9 @@ export default function Gallery() {
                                                         ) :
                                                             null
                                                     }
-                                                            <a type="button" href={Element.YoutubeLink} target='_blank' rel="noreferrer" className="btn btn-sm btn-outline-danger ms-1 rounded-circle"><i className="fa-brands fa-youtube " /></a>
+                                                    <a type="button" href={Element.YoutubeLink} target='_blank' rel="noreferrer" className="btn btn-sm btn-outline-danger ms-1 rounded-circle"><i className="fa-brands fa-youtube " /></a>
                                                 </div>
-                                                <small className="text-body-secondary">Vamshee Techno School</small>
+                                                <small className="text-body-secondary">9 mins</small>
                                             </div>
                                         </div>
                                     </div>
@@ -279,7 +286,8 @@ export default function Gallery() {
                                 <label>Card Description:</label>
                                 <input value={Card.Description} onChange={(e) => setCard({ ...Card, Description: e.target.value })} type='text'></input>
                                 <label>Additional Images:</label>
-                                <textarea value={Card.AdditionalImages.join(',')} onChange={handleImageChange} type='url'></textarea>
+                                <textarea value={Card.AdditionalImages} onChange={handleImageChange} type='url'></textarea>
+
                                 <label>Youtube Link:</label>
                                 <input value={Card.YoutubeLink} onChange={(e) => setCard({ ...Card, YoutubeLink: e.target.value })} type='text'></input>
                             </div>
