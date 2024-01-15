@@ -18,13 +18,13 @@ export default function Documents() {
     const [AllAcademicDropDown, setAllAcademicDropDown] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/GetAcademicDropDown')
+        axios.get('https://project-techno.vercel.app/GetAcademicDropDown')
             .then(result => setAllAcademicDropDown(result.data))
             .catch(error => console.log(error))
     }, [])
 
     const DeleteAcademicDropDown = async (id) => {
-        axios.delete('http://localhost:3001/DeleteAcademicDropDown/' + id)
+        axios.delete('https://project-techno.vercel.app/DeleteAcademicDropDown/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
