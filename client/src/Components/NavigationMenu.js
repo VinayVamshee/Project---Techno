@@ -239,19 +239,21 @@ export default function NavigationMenu() {
             .catch(error => console.log(error))
     }
 
-    // const ChangeAcademicUrl = (e) => {
-    //     e.preventDefault();
-
-    //     const url = e.target.value;
-
-    //     const match = url.match(/\/document\/d\/(.*?)(\/|$)/);
-
-    //     const fileId = match ? match[1] : null;
-
-    //     const viewableUrl = fileId ? `https://docs.google.com/document/d/${fileId}/preview` : null;
-
-    //     setAcademicsDropdown({...AcademicsDropdown,Link: viewableUrl});
-    // }
+    function getPreviewLink(originalLink) {
+        if (originalLink.includes('drive.google.com/file')) {
+          return originalLink.replace('/view?usp=sharing', '/preview');
+        } else if (originalLink.includes('docs.google.com/document')) {
+          return originalLink.replace('/edit?usp=sharing', '/preview');
+        } else {
+          return originalLink;
+        }
+      }
+    
+      const ChangeAcademicsLink = (e) => {
+        const OriginalLink = e.target.value;
+        const PreviewLink = getPreviewLink(OriginalLink);
+        setAcademicsDropdown({ ...AcademicsDropdown, Link: PreviewLink });
+      }
 
     // const ChangeAdmissionUrl = (e) => {
     //     e.preventDefault();
@@ -626,7 +628,7 @@ export default function NavigationMenu() {
                                 <label>Name:</label>
                                 <input type='text' value={AcademicsDropdown.Name} onChange={(e) => setAcademicsDropdown({ ...AcademicsDropdown, Name: e.target.value })} />
                                 <label>Link:</label>
-                                <input type='url' value={AcademicsDropdown.Link} onChange={(e) => setAcademicsDropdown({ ...AcademicsDropdown, Link: e.target.value })} />
+                                <input type='url' value={AcademicsDropdown.Link} onChange={ChangeAcademicsLink} />
                                 <button type='submit' className='btn btn-warning w-25 mt-1'>Add</button>
                             </form>
                             <h3>Admission</h3>
