@@ -8,6 +8,7 @@ import Gallery from './Components/Gallery';
 import Footer from './Components/Footer';
 import { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
+import Documents from './Components/Documents';
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
               null
           }
           <Route path='/Gallery' exact element={<Gallery />} />
+          <Route path='/Documents' exact element={<Documents />} />
         </Routes>
         <Footer />
       </Router>
