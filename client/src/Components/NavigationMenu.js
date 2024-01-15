@@ -281,7 +281,7 @@ export default function NavigationMenu() {
                 </div>
                 <div className='NavButtons'>
                     <Link to='/' className='btn '>Home</Link>
-                    <Link to='/Documents' className='btn'>Documents</Link>
+                    <Link to='/Documents' className='btn'><i className="fa-solid fa-paperclip " />Academics</Link>
                     
                     <div className="dropdown">
                         <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -392,7 +392,7 @@ export default function NavigationMenu() {
                     <ul className="dropdown-menu">
                         <div className='NavButtons'>
                             <Link to='/' className='btn '>Home</Link>
-                            <Link to='/Documents' className='btn'>Documents</Link>
+                            <Link to='/Documents' className='btn'><i className="fa-solid fa-paperclip " />Academics</Link>
                             <div className="dropend">
                                 <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i className="fa-solid fa-paperclip " />Admissions
