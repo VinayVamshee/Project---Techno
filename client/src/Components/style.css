@@ -465,7 +465,7 @@ color: blue;
     display: none;
   }
 
-  .dropdown:hover > .dropdown-menu {
+  .Menu .dropdown:hover > .dropdown-menu {
     display: block;
   }
 
