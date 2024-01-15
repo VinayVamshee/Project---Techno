@@ -44,8 +44,8 @@ i {
   height: 100vh;
 }
 .Documents .card-body iframe {
-  width: 60%;
-  height: 650px;
+  width: 100%;
+  height: 700px;
 }
 .Documents .dropdown-menu li {
   display: flex;
