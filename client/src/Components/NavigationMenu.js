@@ -626,7 +626,7 @@ export default function NavigationMenu() {
                                 <label>Name:</label>
                                 <input type='text' value={AcademicsDropdown.Name} onChange={(e) => setAcademicsDropdown({ ...AcademicsDropdown, Name: e.target.value })} />
                                 <label>Link:</label>
-                                <input type='url' value={AcademicsDropdown.Link} onChange={(e) => setAcademicsDropdown({ ...AcademicsDropdown, Name: e.target.value })} />
+                                <input type='url' value={AcademicsDropdown.Link} onChange={(e) => setAcademicsDropdown({ ...AcademicsDropdown, Link: e.target.value })} />
                                 <button type='submit' className='btn btn-warning w-25 mt-1'>Add</button>
                             </form>
                             <h3>Admission</h3>
