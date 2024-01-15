@@ -75,7 +75,7 @@ export default function Documents() {
         return (
             <div className={`collapse ${openCollapse === collapseId ? 'show' : ''}`} id={collapseId} key={idx}>
             <div class=" card-body">
-                <iframe src={Element.Link.replace('/edit', '/preview')} title='DocumentsBody'/>
+                <iframe src={Element.Link} title='DocumentsBody'/>
             </div>
         </div>
         )
