@@ -32,6 +32,32 @@ i {
   margin-left: 3px;
 }
 
+.Documents {
+  background-image: url('./Images/Wallpaper4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 50px;
+  height: 100vh;
+}
+.Documents .card-body iframe {
+  width: 60%;
+  height: 650px;
+}
+.Documents .dropdown-menu li {
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+}
+.Documents .dropdown .dropdown-toggle {
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
 .NewNoticebtn {
   display: flex;
   justify-content: center;
