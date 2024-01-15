@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import axios from 'axios';
 
 
@@ -90,8 +91,8 @@ export default function NavigationMenu() {
             await axios.post('https://project-techno.vercel.app/AddNewNotice', { ...Notice })
                 .then(result => {
                     console.log(result)
-                alert('Notice Added')
-                window.location.reload();
+                    alert('Added')
+                    window.location.reload();
                 })
                 .catch(error => console.log(error))
         } catch (error) {
@@ -100,13 +101,13 @@ export default function NavigationMenu() {
     }
 
     const AddNewAcademicsDropDown = async (e) => {
-         e.preventDefault();
+        e.preventDefault();
         try {
             await axios.post('https://project-techno.vercel.app/AddNewAcademicDropDown', { ...AcademicsDropdown })
-                 .then(result => {
+                .then(result => {
                     console.log(result)
-                alert('Dropdown Added')
-                window.location.reload();
+                    alert('Added')
+                    window.location.reload();
                 })
                 .catch(error => console.log(error))
         } catch (error) {
@@ -118,10 +119,10 @@ export default function NavigationMenu() {
         e.preventDefault();
         try {
             await axios.post('https://project-techno.vercel.app/AddNewAdmissionDropDown', { ...AdmissionsDropdown })
-               .then(result => {
+                .then(result => {
                     console.log(result)
-                alert('Dropdown Added')
-                window.location.reload();
+                    alert('Added')
+                    window.location.reload();
                 })
                 .catch(error => console.log(error))
         } catch (error) {
@@ -133,12 +134,12 @@ export default function NavigationMenu() {
         e.preventDefault();
         try {
             await axios.post('https://project-techno.vercel.app/AddNewGalleryDropDown', { ...GalleryDropDown })
-               .then(result => {
+                .then(result => {
                     console.log(result)
-                alert('Dropdown Added')
-                window.location.reload();
+                    alert('Added')
+                    window.location.reload();
                 })
-                 .catch(error => console.log(error))
+                .catch(error => console.log(error))
         } catch (error) {
             console.log(error);
         }
@@ -158,7 +159,6 @@ export default function NavigationMenu() {
             console.log(error);
         }
     }
-       
 
     const [AllNotice, setAllNotice] = useState([]);
     const [AllAcademicDropDown, setAllAcademicDropDown] = useState([]);
@@ -190,7 +190,7 @@ export default function NavigationMenu() {
             .catch(error => console.log(error))
     }, [])
 
-     useEffect(() => {
+    useEffect(() => {
         axios.get('https://project-techno.vercel.app/GetDownloadDropDown')
             .then(result => setAllDownloadDropDown(result.data))
             .catch(error => console.log(error))
@@ -239,175 +239,160 @@ export default function NavigationMenu() {
             .catch(error => console.log(error))
     }
 
-    return (<>
-        <div className='NavigatioinMenu'>
-            <div className='Logo'>
-        {
-                    IsLoggedIn ? (
-                        null
-                    ):
-                    <h3>Vamshee Techno School</h3>
-                }
+    // const ChangeAcademicUrl = (e) => {
+    //     e.preventDefault();
+
+    //     const url = e.target.value;
+
+    //     const match = url.match(/\/document\/d\/(.*?)(\/|$)/);
+
+    //     const fileId = match ? match[1] : null;
+
+    //     const viewableUrl = fileId ? `https://docs.google.com/document/d/${fileId}/preview` : null;
+
+    //     setAcademicsDropdown({...AcademicsDropdown,Link: viewableUrl});
+    // }
+
+    // const ChangeAdmissionUrl = (e) => {
+    //     e.preventDefault();
+
+    //     const url = e.target.value;
+
+    //     const match = url.match(/\/document\/d\/(.*?)(\/|$)/);
+
+    //     const fileId = match ? match[1] : null;
+
+    //     const viewableUrl = fileId ? `https://docs.google.com/document/d/${fileId}/preview` : null;
+
+    //     setAdmissionsDropdown({...AdmissionsDropdown,Link: viewableUrl});
+    // }
+
+    return (
+        <>
+            <div className='NavigatioinMenu'>
+                <div className='Logo'>
+                    {
+                        IsLoggedIn ? (
+                            null
+                        ) :
+                            <h3>Vamshee Techno School</h3>
+                    }
+
+                </div>
+                <div className='NavButtons'>
+                    <Link to='/' className='btn '>Home</Link>
+                    <Link to='/Documents' className='btn'>Documents</Link>
+                    
+                    <div className="dropdown">
+                        <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i className="fa-solid fa-paperclip " />Admissions
+                        </button>
+                        <ul className="dropdown-menu">
+                            {
+                                AllAdmissionDropDown.map((Element, idx) => {
+                                    return (
+                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
+                                            <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} target='_blank' rel="noreferrer">{Element.Name}</a></li>
+                                            {
+                                                IsLoggedIn ? (
+                                                    <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
+                                                ) :
+                                                    null
+                                            }
+
+                                        </div>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
+                    <button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
+                    <Link to='/Gallery' className='btn '><i className="fa-regular fa-images" />Gallery</Link>
+                    <button type="button" className='btn ' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
+                    {
+                        IsLoggedIn ? (
+                            <>
+                                <Link to='/StudentsInfo' className='btn btn-warning'>Student's Info</Link>
+                                <Link to='/TeacherInfo' className='btn btn-warning'>Teacher's Info</Link>
+                                <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#AddDropDownModal">Dropdown</button>
+                            </>
+                        ) :
+                            null
+                    }
+                    <div className="dropdown">
+                        <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i className="fa-solid fa-paperclip " />Gallery Links
+                        </button>
+                        <ul className="dropdown-menu">
+                            {
+                                AllGalleryDropDown.map((Element, idx) => {
+                                    return (
+                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
+                                            <li ><a className="dropdown-item" href={Element.Link} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
+                                            {
+                                                IsLoggedIn ? (
+                                                    <button className='btn btn-danger' onClick={() => DeleteGalleryDropDown(Element._id)}>Delete</button>
+                                                ) :
+                                                    null
+                                            }
+                                        </div>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
+                    <div className="dropdown">
+                        <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-download" />Downloads
+                        </button>
+                        <ul className="dropdown-menu">
+                            {
+                                AllDownloadDropDown.map((Element, idx) => {
+                                    return (
+                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
+                                             <li ><a className="dropdown-item" href={Element.Link.replace("/edit", "/export?format=pdf")} download>{Element.Name}</a></li>
+                                            {
+                                                IsLoggedIn ? (
+                                                    <button className='btn btn-danger' onClick={() => DeleteDownloadDropDown(Element._id)}>Delete</button>
+                                                ) :
+                                                    null
+                                            }
+                                        </div>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
+
+
+                    <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
+                </div>
+
+                <div className='Authenticate'>
+                    {
+                        IsLoggedIn ? (
+                            <>
+                                <button className='btn btn-success mx-3' type="button" data-bs-toggle="modal" data-bs-target="#RegisterModal">Add New Admin</button>
+                                <button className='btn btn-danger' onClick={Logout}>Logout<i className="fa-solid fa-right-from-bracket" /></button>
+                            </>
+                        ) :
+                            <button type="button" className='btn btn-danger' data-bs-toggle="modal" data-bs-target="#LoginModal"><i className="fa-solid fa-right-to-bracket " />Login</button>
+                    }
+                </div>
+
+
+
             </div>
-            <div className='NavButtons'>
-                <Link to='/' className='btn '>Home</Link>
-                <div className="dropdown">
-                    <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i className="fa-solid fa-paperclip " />Academics
-                    </button>
-                    <ul className="dropdown-menu">
-                        {
-                            AllAcademicDropDown.map((Element, idx) => {
-                                return (
-                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
-                                        <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
-                                       {
-                                            IsLoggedIn ? (
-                                                <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
-                                            ) :
-                                                null
-                                        }
-                                    </div>
-                                )
-                            })
-                        }
-                        {/* <li><a className="dropdown-item" href='https://docs.google.com/document/d/1gFjln75C8J5-mkvGnA6rdmdlYFV2L7Kd/edit?usp=share_link&ouid=112896007849197727044&rtpof=true&sd=true' target='_blank' rel="noreferrer">Book List</a></li>
-                        <li><a className="dropdown-item" href={Uniform} target='_blank' rel="noreferrer">Uniform</a></li> */}
 
-                    </ul>
-                </div>
-                <div className="dropdown">
-                    <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i className="fa-solid fa-paperclip " />Admissions
-                    </button>
-                    <ul className="dropdown-menu">
-                        {
-                            AllAdmissionDropDown.map((Element, idx) => {
-                                return (
-                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
-                                        <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
-                                           {
-                                            IsLoggedIn ? (
-                                                <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
-                                            ) :
-                                                null
-                                        }
-                                    </div>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-<button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
-                <Link to='/Gallery' className='btn '><i className="fa-regular fa-images" />Gallery</Link>
-                <button type="button" className='btn ' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
-                {
-                    IsLoggedIn ? (
-                        <>
-                            <Link to='/StudentsInfo' className='btn btn-warning'>Student's Info</Link>
-                            <Link to='/TeacherInfo' className='btn btn-warning'>Teacher's Info</Link>
-                            <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#AddDropDownModal">Dropdown</button>
-                        </>
-                    ) :
-                        null
-                }
-                <div className="dropdown">
-                    <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i className="fa-solid fa-paperclip " />Gallery Links
-                    </button>
-                    <ul className="dropdown-menu">
-                        {
-                            AllGalleryDropDown.map((Element, idx) => {
-                                return (
-                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
-                                        <li ><a className="dropdown-item" href={Element.Link} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
-                                        {
-                                            IsLoggedIn ? (
-                                                <button className='btn btn-danger' onClick={() => DeleteGalleryDropDown(Element._id)}>Delete</button>
-                                            ) :
-                                                null
-                                        }
-                                    </div>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-
-                        <div className="dropdown">
-                    <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-download"/>Downloads
-                    </button>
-                    <ul className="dropdown-menu">
-                        {
-                            AllDownloadDropDown.map((Element, idx) => {
-                                return (
-                                    <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
-                                        <li ><a className="dropdown-item" href={Element.Link.replace("/edit", "/export?format=pdf")} download>{Element.Name}</a></li>
-                                        {
-                                            IsLoggedIn ? (
-                                                <button className='btn btn-danger' onClick={() => DeleteDownloadDropDown(Element._id)}>Delete</button>
-                                            ) :
-                                                null
-                                        }
-                                    </div>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-
-
-                <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
-            </div>
-
-            <div className='Authenticate'>
-                {
-                    IsLoggedIn ? (
-                        <>
-                            <button className='btn btn-success mx-3' type="button" data-bs-toggle="modal" data-bs-target="#RegisterModal">Add New Admin</button>
-                            <button className='btn btn-danger' onClick={Logout}>Logout<i className="fa-solid fa-right-from-bracket" /></button>
-                        </>
-                    ) :
-                        <button type="button" className='btn btn-danger' data-bs-toggle="modal" data-bs-target="#LoginModal"><i className="fa-solid fa-right-to-bracket " />Login</button>
-                }
-            </div>
-            
-            
-
-        </div>
-
-        <div className='Menu'>
+            <div className='Menu'>
                 <div className="dropdown">
                     <button className="btn text-dark menutab" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i className="fa-solid fa-bars text-dark"></i> <p>Vamshee Techno School</p>
-                </button>
+                        <i className="fa-solid fa-bars text-dark"></i> <p>Vamshee Techno School</p>
+                    </button>
                     <ul className="dropdown-menu">
                         <div className='NavButtons'>
                             <Link to='/' className='btn '>Home</Link>
-                            <div className="dropend">
-                                <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i className="fa-solid fa-paperclip " />Academics
-                                </button>
-                                <ul className="dropdown-menu">
-                                    {
-                                        AllAcademicDropDown.map((Element, idx) => {
-                                            return (
-                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
-                                                    <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
-            {
-                                            IsLoggedIn ? (
-                                                <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
-                                            ) :
-                                                null
-                                        }
-                                                   
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </ul>
-                            </div>
+                            <Link to='/Documents' className='btn'>Documents</Link>
                             <div className="dropend">
                                 <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i className="fa-solid fa-paperclip " />Admissions
@@ -417,21 +402,21 @@ export default function NavigationMenu() {
                                         AllAdmissionDropDown.map((Element, idx) => {
                                             return (
                                                 <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
-                                                    <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
-                                      {
-                                            IsLoggedIn ? (
-                                                 <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
-                                            ) :
-                                                null
-                                        }
-                                                   
+                                                    <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} target='_blank' rel="noreferrer">{Element.Name}</a></li>
+                                                    {
+                                                        IsLoggedIn ? (
+                                                            <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
+                                                        ) :
+                                                            null
+                                                    }
+
                                                 </div>
                                             )
                                         })
                                     }
                                 </ul>
                             </div>
-<button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
+                            <button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
                             <Link to='/Gallery' className='btn '><i className="fa-regular fa-images" />Gallery</Link>
                             <button type="button" className='btn ' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
                             {
@@ -467,7 +452,7 @@ export default function NavigationMenu() {
                                 </ul>
                             </div>
 
-                                    <div className="dropdown">
+                            <div className="dropdown">
                                 <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-download" />Downloads
                                 </button>
@@ -492,6 +477,7 @@ export default function NavigationMenu() {
 
 
                             <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
+
                             {
                                 IsLoggedIn ? (
                                     <>
@@ -640,7 +626,7 @@ export default function NavigationMenu() {
                                 <label>Name:</label>
                                 <input type='text' value={AcademicsDropdown.Name} onChange={(e) => setAcademicsDropdown({ ...AcademicsDropdown, Name: e.target.value })} />
                                 <label>Link:</label>
-                                <input type='url' value={AcademicsDropdown.Link} onChange={(e) => setAcademicsDropdown({ ...AcademicsDropdown, Link: e.target.value })} />
+                                <input type='url' value={AcademicsDropdown.Link} onChange={(e) => setAcademicsDropdown({ ...AcademicsDropdown, Name: e.target.value })} />
                                 <button type='submit' className='btn btn-warning w-25 mt-1'>Add</button>
                             </form>
                             <h3>Admission</h3>
@@ -659,7 +645,7 @@ export default function NavigationMenu() {
                                 <input type='url' value={GalleryDropDown.Link} onChange={(e) => setGalleryDropDown({ ...GalleryDropDown, Link: e.target.value })} />
                                 <button type='submit' className='btn btn-warning w-25 mt-1'>Add</button>
                             </form>
-                <h3>Downloads</h3>
+                            <h3>Downloads</h3>
                             <form className='AddModal' onSubmit={AddNewDownloadDropDown}>
                                 <label>Name:</label>
                                 <input type='text' value={DownloadDropDown.Name} onChange={(e) => setDownloadDropDown({ ...DownloadDropDown, Name: e.target.value })} />
@@ -674,7 +660,7 @@ export default function NavigationMenu() {
                     </div>
                 </div>
             </div>
-    </>
+        </>
 
     )
 }
