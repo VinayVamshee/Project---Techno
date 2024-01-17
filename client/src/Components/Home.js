@@ -46,7 +46,7 @@ export default function Home() {
                             <div className="carousel-inner">
                                 {
                                     AllCarouselImage.length > 0 && (
-                                        <div className="carousel-item active" data-bs-interval="1500">
+                                        <div className="carousel-item active">
                                             <img src={AllCarouselImage[AllCarouselImage.length - 1].Image} className="d-block" alt="..." />
                                         </div>
                                     )
@@ -54,7 +54,7 @@ export default function Home() {
                                 {
                                     AllCarouselImage.slice(0, -1).map((Element, idx) => {
                                         return (
-                                            <div className="carousel-item" data-bs-interval="1500" key={idx}>
+                                            <div className="carousel-item" key={idx}>
                                                 <img src={Element.Image} className="d-block" alt="..." />
                                             </div>
                                         )
