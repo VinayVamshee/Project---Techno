@@ -234,7 +234,7 @@ export default function Gallery() {
                                                     }
                                                     <a type="button" href={Element.YoutubeLink} target='_blank' rel="noreferrer" className="btn btn-sm btn-outline-danger ms-1 rounded-circle"><i className="fa-brands fa-youtube " /></a>
                                                 </div>
-                                                <small className="text-body-secondary">9 mins</small>
+                                                <small className="text-body-secondary">Vamshee Techno School</small>
                                             </div>
                                         </div>
                                     </div>
