@@ -15,6 +15,9 @@ const AdmissionSchema = require('./models/Admission')
 const GalleryDropDownSchema = require('./models/GalleryDropDown')
 const DownloadDropDownSchema = require('./models/DownloadDropDown')
 const jwt = require('jsonwebtoken')
+const BackgroundImage = require('./models/BackgroundImage')
+const HomeImage = require('./models/HomeImage');
+
 
 const app = express();
 app.use(cors());
@@ -284,6 +287,66 @@ app.delete('/DeleteDownloadDropDown/:id', (req, res) => {
     DownloadDropDownSchema.findByIdAndDelete({ _id: id })
         .then(result => res.json(result))
         .catch(error => res.json(error))
+});
+
+app.post('/postBackgroundImage', async (req, res) => {
+    try {
+        const { imageUrl } = req.body;
+        if (!imageUrl) return res.status(400).json({ success: false, message: 'Image URL is required' });
+
+        // Remove the existing image and replace it
+        await BackgroundImage.deleteMany({});
+        const newImage = await BackgroundImage.create({ imageUrl });
+
+        res.status(200).json({ success: true, message: 'Background image updated', data: newImage });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server error', error });
+    }
+});
+
+// GET: Retrieve the Background Image
+app.get('/getBackgroundImage', async (req, res) => {
+    try {
+        const backgroundImage = await BackgroundImage.findOne();
+        if (!backgroundImage) return res.status(404).json({ success: false, message: 'No background image found' });
+
+        res.status(200).json({ success: true, data: backgroundImage });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server error', error });
+    }
+});
+
+app.post('/postHomeImage', async (req, res) => {
+    const { imageLink, description } = req.body;
+
+    try {
+        const newImage = new HomeImage({ imageLink, description });
+        await newImage.save();
+        res.json({ success: true, message: 'Image added successfully', data: newImage });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server error', error });
+    }
+});
+
+// ✅ Route to fetch all Home Images
+app.get('/getHomeImages', async (req, res) => {
+    try {
+        const homeImages = await HomeImage.find().sort({ createdAt: -1 }); // Latest first
+        res.json({ success: true, data: homeImages });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error fetching images', error });
+    }
+});
+
+// ✅ Route to delete a Home Image by ID
+app.delete('/deleteHomeImage/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await HomeImage.findByIdAndDelete(id);
+        res.json({ success: true, message: 'Image deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error deleting image', error });
+    }
 });
 
 

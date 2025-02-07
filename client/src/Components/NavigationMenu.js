@@ -284,6 +284,19 @@ export default function NavigationMenu() {
     //     setAdmissionsDropdown({...AdmissionsDropdown,Link: viewableUrl});
     // }
 
+    const [newImageUrl, setNewImageUrl] = useState('');
+
+
+    const uploadBackgroundImage = () => {
+        axios.post('http://localhost:3001/postBackgroundImage', { imageUrl: newImageUrl })
+            .then(response => {
+                setNewImageUrl('');
+                alert('Background image updated!');
+            })
+            .catch(error => console.error('Error updating background image:', error));
+    };
+
+
     return (
         <>
             <div className='NavigatioinMenu'>
@@ -292,10 +305,10 @@ export default function NavigationMenu() {
                         IsLoggedIn ? (
                             null
                         ) :
-                        <>
-                         <h3><img src={Logo} alt='...'/> Vamshee Techno School</h3>
-                        </>
-                           
+                            <Link className='logo-title' to='/'>
+                                <h3><img src={Logo} alt='...' /> Vamshee Techno School</h3>
+                            </Link>
+
                     }
 
                 </div>
@@ -385,9 +398,9 @@ export default function NavigationMenu() {
                         </ul>
                     </div>
                     <div className="dropdown">
-                        <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {/* <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-download" />Downloads
-                        </button>
+                        </button> */}
                         <ul className="dropdown-menu">
                             {
                                 AllDownloadDropDown.map((Element, idx) => {
@@ -496,9 +509,9 @@ export default function NavigationMenu() {
                             </div>
 
                             <div className="dropdown">
-                                <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {/* <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-download" />Downloads
-                                </button>
+                                </button> */}
                                 <ul className="dropdown-menu">
                                     {
                                         AllDownloadDropDown.map((Element, idx) => {
@@ -697,6 +710,11 @@ export default function NavigationMenu() {
                                 <label>Link:</label>
                                 <input type='url' value={GalleryDropDown.Link} onChange={(e) => setGalleryDropDown({ ...GalleryDropDown, Link: e.target.value })} />
                                 <button type='submit' className='btn btn-warning w-25 mt-1'>Add</button>
+                            </form>
+                            <h3>Background Image</h3>
+                            <form className='AddModal' onSubmit={uploadBackgroundImage}>
+                                <input type='url' placeholder="Enter image URL" value={newImageUrl} onChange={(e) => setNewImageUrl(e.target.value)}/>
+                                <button type='submit' className='btn btn-warning w-25 mt-1'>Save</button>
                             </form>
                             <h3>Downloads</h3>
                             <form className='AddModal' onSubmit={AddNewDownloadDropDown}>

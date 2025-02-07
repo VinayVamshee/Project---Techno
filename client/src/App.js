@@ -9,8 +9,9 @@ import Gallery from './Components/Gallery';
 import { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 // import Documents from './Components/Documents';
-import videoBG from './Components/Images/WhatsApp Video 2025-02-07 at 18.05.45.mp4'
+
 import Documentation from './Components/Documentation';
+import axios from 'axios';
 
 function App() {
 
@@ -38,12 +39,16 @@ function App() {
 
   checkTokenExpiration();
 
+  const [backgroundImage, setBackgroundImage] = useState(null);
+    useEffect(() => {
+      axios.get('http://localhost:3001/getBackgroundImage')
+          .then(response => setBackgroundImage(response.data.data.imageUrl))
+          .catch(error => console.error('Error fetching background image:', error));
+  }, []);
+
+
   return (
-    <div className="App">
-      <video className="video-background" autoPlay loop muted>
-        <source src={videoBG} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <div className="App"  style={{ backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <Router>
         <NavigationMenu />
         <Routes>

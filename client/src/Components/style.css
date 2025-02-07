@@ -23,11 +23,10 @@
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  /* Ensures the video covers the entire area */
-  z-index: -1;
-  /* Keeps the video behind other content */
 
-  opacity: 0.5;
+  z-index: -1;
+
+  opacity: 1;
 }
 
 .NavigatioinMenu {
@@ -36,7 +35,7 @@
   align-items: center;
   border-bottom: .5px solid rgb(57, 57, 57);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.256);
-  background-color: rgba(0, 0, 0, 0.816);
+  background-color: rgba(0, 0, 0, 0.871);
   color: white;
   /* background-color:  rgb(211, 225, 181); */
   /* background-image: url('./Images/Wallpaper4.jpg'); */
@@ -47,14 +46,19 @@
   top: 0;
 }
 
-.NavigatioinMenu .Logo h3 {
+.NavigatioinMenu .Logo .logo-title {
+  text-decoration: none;
+  color: white;
+}
+
+.NavigatioinMenu .Logo .logo-title {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
 
-.NavigatioinMenu .Logo h3 img{
+.NavigatioinMenu .Logo .logo-title img{
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -192,6 +196,7 @@ i {
   justify-content: center;
   align-items: center;
   gap: 10px;
+
 }
 
 .NavButtons .btn {
@@ -208,6 +213,7 @@ i {
 .Authenticate {
   padding: 5px;
   display: flex;
+  justify-content: flex-end;
   gap: 10px;
 }
 
@@ -309,7 +315,9 @@ i {
 }
 
 .CarouselDiv .carousel {
-  width: 1200px;
+  width: 1000px;
+  border-radius: 50px;
+  overflow: hidden;
 }
 
 .card img {
@@ -422,7 +430,7 @@ i {
   align-items: center;
 
   width: 100%;
-  height: 110vh;
+  height: 90vh;
   text-align: center;
   padding: 20px;
 }
@@ -458,20 +466,10 @@ i {
   font-family: 'Times New Roman', Times, serif;
 }
 
-.Abouts {
-  position: static;
-  top: 100px;
-  width: 100%;
-  padding: 30px;
-  background-color: rgba(255, 255, 255, 0.663);
-  color: black;
-  height: 100vh;
-}
-
 .About {
   width: 100%;
   padding: 30px;
-  background-color: rgba(255, 255, 255, 0.663);
+  background-color: rgba(255, 255, 255, 0.449);
   color: black;
 
   display: flex;
@@ -810,7 +808,7 @@ i {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.691);
+  background-color: rgba(255, 255, 255, 0.214);
 }
 
 .flipbook {

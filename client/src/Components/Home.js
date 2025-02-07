@@ -7,6 +7,18 @@ import axios from 'axios'
 
 export default function Home() {
 
+    const [IsLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setIsLoggedIn(true)
+        }
+        else {
+            setIsLoggedIn(false)
+        }
+    }, [])
+
     const [AllCarouselImage, setAllCarouselImage] = useState([]);
 
     useEffect(() => {
@@ -39,8 +51,38 @@ export default function Home() {
 
 
 
+    const [homeImages, setHomeImages] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/getHomeImages')
+            .then(response => setHomeImages(response.data.data))
+            .catch(error => console.error('Error fetching home images:', error));
+    }, []);
+
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:3001/deleteHomeImage/${id}`)
+            .then(response => {
+                alert(response.data.message);
+                setHomeImages(homeImages.filter(image => image._id !== id)); // Remove from UI
+            })
+            .catch(error => console.error('Error deleting image:', error));
+    };
+
+    const [imageLink, setImageLink] = useState('');
+    const [description, setDescription] = useState('');
+
+    const handleUpload = () => {
+        axios.post('http://localhost:3001/postHomeImage', { imageLink, description })
+            .then(response => {
+                alert(response.data.message);
+            })
+            .catch(error => console.error('Error uploading home image:', error));
+    };
+
+
     return (
         <div className='Home'>
+            
             <div className='Intro'>
                 {/* <div>
                     <img src={Logo} alt='...' />
@@ -62,10 +104,32 @@ export default function Home() {
                 </p>
             </div>
 
-
-
-
+            <button type="button" class="btn btn-warning my-2" data-bs-toggle="modal" data-bs-target="#AddImageTextModal">
+                Add Image & Context
+            </button>
             {
+                homeImages.length > 0 && homeImages.map((Element, idx) => {
+                    return (
+                        <div className={`About ${idx % 2 === 0 ? 'column' : 'column-reverse'}`} key={idx}>
+                            <div className="about-img">
+                                <img src={Element.imageLink} alt='...' />
+                            </div>
+                            <div className="about-description">
+                                <p>{Element.description}</p>
+                            </div>
+                            {
+                                IsLoggedIn ?
+                                    <button className='btn btn-danger' onClick={() => handleDelete(Element._id)}>Delete</button>
+                                    :
+                                    null
+                            }
+                        </div>
+                    )
+                })
+            }
+
+
+            {/* {
                 AllCarouselImage.length > 0 && AllCarouselImage.map((Element, idx) => {
                     return (
                         <div className={`About ${idx % 2 === 0 ? 'column' : 'column-reverse'}`} key={idx}>
@@ -80,12 +144,12 @@ export default function Home() {
                         </div>
                     )
                 })
-            }
+            } */}
 
 
 
             {/* <div className="col-md-5 order-md-1 CarouselImage">
-                        <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselAddImageTextAutoplaying" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
                                 {
                                     AllCarouselImage.length > 0 && (
@@ -104,16 +168,43 @@ export default function Home() {
                                     })
                                 }
                             </div>
-                            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <button className="carousel-control-prev" type="button" data-bs-target="#carouselAddImageTextAutoplaying" data-bs-slide="prev">
                                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span className="visually-hidden">Previous</span>
                             </button>
-                            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <button className="carousel-control-next" type="button" data-bs-target="#carouselAddImageTextAutoplaying" data-bs-slide="next">
                                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span className="visually-hidden">Next</span>
                             </button>
                         </div>
                     </div> */}
+
+
+            
+
+
+            <div class="modal fade" id="AddImageTextModal" tabindex="-1" aria-labelledby="AddImageTextModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form className='text-dark' onSubmit={handleUpload}>
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="AddImageTextModalLabel">Add Image & Context</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body AddModal">
+                                <lable>Image Url</lable>
+                                <input type="text" placeholder="Image URL" value={imageLink} onChange={(e) => setImageLink(e.target.value)} />
+                                <lable>Description</lable>
+                                <input type="text" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
         </div>
     )
