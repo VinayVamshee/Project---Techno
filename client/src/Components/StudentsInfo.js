@@ -52,7 +52,7 @@ export default function StudentsInfo() {
     const SendStudentData = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("https://project-techno.vercel.app/StudentInfo", { ...StudentData })
+            await axios.post("http://localhost:3001/StudentInfo", { ...StudentData })
                  .then(result => {
                     console.log(result)
                     alert('Added')
@@ -67,13 +67,13 @@ export default function StudentsInfo() {
     const [AllStudentInfo, setAllStudentInfo] = useState([]);
 
     useEffect(() => {
-        axios.get('https://project-techno.vercel.app/GetStudentInfo')
+        axios.get('http://localhost:3001/GetStudentInfo')
             .then(result => setAllStudentInfo(result.data))
             .catch(error => console.log(error))
     }, [])
 
     const DeleteStudentInfo = async (id) => {
-        axios.delete('https://project-techno.vercel.app/DeleteStudent/' + id)
+        axios.delete('http://localhost:3001/DeleteStudent/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -89,7 +89,7 @@ export default function StudentsInfo() {
     });
 
     const GetStudentInfo = async (id) => {
-        axios.get('https://project-techno.vercel.app/GetStudentInfo/' + id)
+        axios.get('http://localhost:3001/GetStudentInfo/' + id)
             .then(result => setEditStudentData(result.data))
             .catch(error => console.log(error))
     }
@@ -97,7 +97,7 @@ export default function StudentsInfo() {
     const EditStudentInfo = async (id,e) => {
         e.preventDefault();
         try {
-            axios.put("https://project-techno.vercel.app/EditStudentInfo/" + id, { ...EditStudentData })
+            axios.put("http://localhost:3001/EditStudentInfo/" + id, { ...EditStudentData })
                .then(result => {
                 console.log(result)
                 alert('Edited')

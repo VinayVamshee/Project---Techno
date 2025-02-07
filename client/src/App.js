@@ -5,10 +5,12 @@ import NavigationMenu from './Components/NavigationMenu';
 import StudentsInfo from './Components/StudentsInfo';
 import TeacherInfo from './Components/TeacherInfo';
 import Gallery from './Components/Gallery';
-import Footer from './Components/Footer';
+// import Footer from './Components/Footer';
 import { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
-import Documents from './Components/Documents';
+// import Documents from './Components/Documents';
+import videoBG from './Components/Images/WhatsApp Video 2025-02-07 at 18.05.45.mp4'
+import Documentation from './Components/Documentation';
 
 function App() {
 
@@ -38,6 +40,10 @@ function App() {
 
   return (
     <div className="App">
+      <video className="video-background" autoPlay loop muted>
+        <source src={videoBG} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <Router>
         <NavigationMenu />
         <Routes>
@@ -52,9 +58,10 @@ function App() {
               null
           }
           <Route path='/Gallery' exact element={<Gallery />} />
-          <Route path='/Documents' exact element={<Documents />} />
+          {/* <Route path='/Documents' exact element={<Documents />} /> */}
+          <Route path='/Documentation' exact element={<Documentation />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );

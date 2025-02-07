@@ -25,7 +25,7 @@ export default function Footer() {
   const SendContactDetails = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://project-techno.vercel.app/AddContactInfo", { ...Contact })
+      await axios.post("http://localhost:3001/AddContactInfo", { ...Contact })
         .then(result => {
                     console.log(result)
                     alert('Added')
@@ -40,13 +40,13 @@ export default function Footer() {
   const [AllContact, setAllContact] = useState([]);
 
   useEffect(() => {
-    axios.get('https://project-techno.vercel.app/GetContactInfo')
+    axios.get('http://localhost:3001/GetContactInfo')
       .then(result => setAllContact(result.data))
       .catch(error => console.log(error))
   },[])
 
   const DeleteContactInfo = async (id) => {
-    axios.delete('https://project-techno.vercel.app/DeleteContactInfo/' + id)
+    axios.delete('http://localhost:3001/DeleteContactInfo/' + id)
       .then(result => {
         console.log(result)
         window.location.reload();

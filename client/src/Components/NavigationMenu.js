@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import Logo from './Images/Picture 1.jpeg'
 import axios from 'axios';
 
 
 export default function NavigationMenu() {
+
+    const navigate = useNavigate();
+
+    function handleDocumentOpen(fileLink) {
+        navigate(`/Documentation?file=${encodeURIComponent(fileLink)}`);
+    }
+
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -12,7 +19,7 @@ export default function NavigationMenu() {
     const AddAdmin = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://project-techno.vercel.app/Register', { username, password })
+            await axios.post('http://localhost:3001/Register', { username, password })
                 .then(result => console.log(result))
                 .catch(error => console.log(error))
             alert('User Registration Successful')
@@ -23,7 +30,7 @@ export default function NavigationMenu() {
 
     const CheckAdmin = async (e) => {
         e.preventDefault();
-        axios.post('https://project-techno.vercel.app/Login', { username, password })
+        axios.post('http://localhost:3001/Login', { username, password })
             .then(result => {
                 if (result.data.token) {
                     localStorage.setItem('token', result.data.token)
@@ -88,7 +95,7 @@ export default function NavigationMenu() {
     const AddNewNotice = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://project-techno.vercel.app/AddNewNotice', { ...Notice })
+            await axios.post('http://localhost:3001/AddNewNotice', { ...Notice })
                 .then(result => {
                     console.log(result)
                     alert('Added')
@@ -103,7 +110,7 @@ export default function NavigationMenu() {
     const AddNewAcademicsDropDown = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://project-techno.vercel.app/AddNewAcademicDropDown', { ...AcademicsDropdown })
+            await axios.post('http://localhost:3001/AddNewAcademicDropDown', { ...AcademicsDropdown })
                 .then(result => {
                     console.log(result)
                     alert('Added')
@@ -118,7 +125,7 @@ export default function NavigationMenu() {
     const AddNewAdmissionDropDown = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://project-techno.vercel.app/AddNewAdmissionDropDown', { ...AdmissionsDropdown })
+            await axios.post('http://localhost:3001/AddNewAdmissionDropDown', { ...AdmissionsDropdown })
                 .then(result => {
                     console.log(result)
                     alert('Added')
@@ -133,7 +140,7 @@ export default function NavigationMenu() {
     const AddNewGalleryDropDown = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://project-techno.vercel.app/AddNewGalleryDropDown', { ...GalleryDropDown })
+            await axios.post('http://localhost:3001/AddNewGalleryDropDown', { ...GalleryDropDown })
                 .then(result => {
                     console.log(result)
                     alert('Added')
@@ -148,7 +155,7 @@ export default function NavigationMenu() {
     const AddNewDownloadDropDown = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://project-techno.vercel.app/AddNewDownloadDropDown', { ...DownloadDropDown })
+            await axios.post('http://localhost:3001/AddNewDownloadDropDown', { ...DownloadDropDown })
                 .then(result => {
                     console.log(result)
                     alert('Added')
@@ -167,37 +174,37 @@ export default function NavigationMenu() {
     const [AllDownloadDropDown, setAllDownloadDropDown] = useState([]);
 
     useEffect(() => {
-        axios.get('https://project-techno.vercel.app/GetNotice')
+        axios.get('http://localhost:3001/GetNotice')
             .then(result => setAllNotice(result.data))
             .catch(error => console.log(error))
     }, [])
 
     useEffect(() => {
-        axios.get('https://project-techno.vercel.app/GetAcademicDropDown')
+        axios.get('http://localhost:3001/GetAcademicDropDown')
             .then(result => setAllAcademicDropDown(result.data))
             .catch(error => console.log(error))
     }, [])
 
     useEffect(() => {
-        axios.get('https://project-techno.vercel.app/GetAdmissionDropDown')
+        axios.get('http://localhost:3001/GetAdmissionDropDown')
             .then(result => setAllAdmissionDropDown(result.data))
             .catch(error => console.log(error))
     }, [])
 
     useEffect(() => {
-        axios.get('https://project-techno.vercel.app/GetGalleryDropDown')
+        axios.get('http://localhost:3001/GetGalleryDropDown')
             .then(result => setAllGalleryDropDown(result.data))
             .catch(error => console.log(error))
     }, [])
 
     useEffect(() => {
-        axios.get('https://project-techno.vercel.app/GetDownloadDropDown')
+        axios.get('http://localhost:3001/GetDownloadDropDown')
             .then(result => setAllDownloadDropDown(result.data))
             .catch(error => console.log(error))
     }, [])
 
     const DeleteNotice = async (id) => {
-        axios.delete('https://project-techno.vercel.app/DeleteNotice/' + id)
+        axios.delete('http://localhost:3001/DeleteNotice/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -205,7 +212,7 @@ export default function NavigationMenu() {
             .catch(error => console.log(error))
     }
     const DeleteAcademicDropDown = async (id) => {
-        axios.delete('https://project-techno.vercel.app/DeleteAcademicDropDown/' + id)
+        axios.delete('http://localhost:3001/DeleteAcademicDropDown/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -213,7 +220,7 @@ export default function NavigationMenu() {
             .catch(error => console.log(error))
     }
     const DeleteAdmissionDropDown = async (id) => {
-        axios.delete('https://project-techno.vercel.app/DeleteAdmissionDropDown/' + id)
+        axios.delete('http://localhost:3001/DeleteAdmissionDropDown/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -222,7 +229,7 @@ export default function NavigationMenu() {
     }
 
     const DeleteGalleryDropDown = async (id) => {
-        axios.delete('https://project-techno.vercel.app/DeleteGalleryDropDown/' + id)
+        axios.delete('http://localhost:3001/DeleteGalleryDropDown/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -231,7 +238,7 @@ export default function NavigationMenu() {
     }
 
     const DeleteDownloadDropDown = async (id) => {
-        axios.delete('https://project-techno.vercel.app/DeleteDownloadDropDown/' + id)
+        axios.delete('http://localhost:3001/DeleteDownloadDropDown/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -240,20 +247,28 @@ export default function NavigationMenu() {
     }
 
     function getPreviewLink(originalLink) {
-        if (originalLink.includes('drive.google.com/file')) {
-          return originalLink.replace('/view?usp=sharing', '/preview');
-        } else if (originalLink.includes('docs.google.com/document')) {
-          return originalLink.replace('/edit?usp=sharing', '/preview');
-        } else {
-          return originalLink;
+        const match = originalLink.match(/(?:\/d\/|id=)([\w-]+)/);
+        if (match) {
+            const fileId = match[1];
+
+            if (originalLink.includes('docs.google.com/document')) {
+                return `https://docs.google.com/document/d/${fileId}/export?format=pdf`;
+            } else if (originalLink.includes('docs.google.com/spreadsheets')) {
+                return `https://docs.google.com/spreadsheets/d/${fileId}/export?format=pdf`;
+            } else if (originalLink.includes('docs.google.com/presentation')) {
+                return `https://docs.google.com/presentation/d/${fileId}/export/pdf`;
+            } else {
+                return `https://drive.google.com/uc?export=download&id=${fileId}`;
+            }
         }
-      }
-    
-      const ChangeAcademicsLink = (e) => {
+        return originalLink;
+    }
+
+    const ChangeAcademicsLink = (e) => {
         const OriginalLink = e.target.value;
         const PreviewLink = getPreviewLink(OriginalLink);
         setAcademicsDropdown({ ...AcademicsDropdown, Link: PreviewLink });
-      }
+    }
 
     // const ChangeAdmissionUrl = (e) => {
     //     e.preventDefault();
@@ -277,59 +292,85 @@ export default function NavigationMenu() {
                         IsLoggedIn ? (
                             null
                         ) :
-                            <h3>Vamshee Techno School</h3>
+                        <>
+                         <h3><img src={Logo} alt='...'/> Vamshee Techno School</h3>
+                        </>
+                           
                     }
 
                 </div>
                 <div className='NavButtons'>
                     <Link to='/' className='btn '>Home</Link>
-                    <Link to='/Documents' className='btn'><i className="fa-solid fa-paperclip " />Academics</Link>
-                    
+                    {/* <Link to='/Documents' className='btn'><i className="fa-solid fa-paperclip " />Academics</Link> */}
+
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i className="fa-solid fa-paperclip " />Academics
+                        </button>
+                        <ul class="dropdown-menu">
+                            {AllAcademicDropDown.map((Element, idx) => (
+                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
+                                    <li><button className='dropdown-item' onClick={() => handleDocumentOpen(Element.Link)} >{Element.Name}</button></li>
+                                    {
+                                        IsLoggedIn && (
+                                            <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
+                                        )
+                                    }
+                                </div>
+                            ))}
+                        </ul>
+                    </div>
+
                     <div className="dropdown">
-                        <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button to='/Documents' className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i className="fa-solid fa-paperclip " />Admissions
                         </button>
                         <ul className="dropdown-menu">
-                            {
-                                AllAdmissionDropDown.map((Element, idx) => {
-                                    return (
-                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
-                                            <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} target='_blank' rel="noreferrer">{Element.Name}</a></li>
-                                            {
-                                                IsLoggedIn ? (
-                                                    <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
-                                                ) :
-                                                    null
-                                            }
-
-                                        </div>
-                                    )
-                                })
-                            }
+                            {AllAdmissionDropDown.map((Element, idx) => (
+                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
+                                    <li>
+                                        <button
+                                            className="dropdown-item"
+                                            onClick={() => handleDocumentOpen(Element.Link)} // Directly using the stored PDF link
+                                        >
+                                            {Element.Name}
+                                        </button>
+                                    </li>
+                                    {IsLoggedIn && (
+                                        <button
+                                            className="btn btn-danger"
+                                            onClick={() => DeleteAdmissionDropDown(Element._id)}
+                                        >
+                                            Delete
+                                        </button>
+                                    )}
+                                </div>
+                            ))}
                         </ul>
+
                     </div>
-                    <button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
+                    <button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"> <span><i className="fa-solid fa-newspaper" />Notice</span>  </button>
                     <Link to='/Gallery' className='btn '><i className="fa-regular fa-images" />Gallery</Link>
                     <button type="button" className='btn ' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
                     {
                         IsLoggedIn ? (
                             <>
-                                <Link to='/StudentsInfo' className='btn btn-warning'>Student's Info</Link>
-                                <Link to='/TeacherInfo' className='btn btn-warning'>Teacher's Info</Link>
-                                <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#AddDropDownModal">Dropdown</button>
+                                {/* <Link to='/StudentsInfo' className='btn btn-warning'>Student's Info</Link>
+                                <Link to='/TeacherInfo' className='btn btn-warning'>Teacher's Info</Link> */}
+                                <button type="button" className="btn" data-bs-toggle="modal" data-bs-target="#AddDropDownModal">Dropdown</button>
                             </>
                         ) :
                             null
                     }
                     <div className="dropdown">
                         <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i className="fa-solid fa-paperclip " />Gallery Links
+                            <i className="fa-solid fa-paperclip " />Media
                         </button>
                         <ul className="dropdown-menu">
                             {
                                 AllGalleryDropDown.map((Element, idx) => {
                                     return (
-                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
+                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
                                             <li ><a className="dropdown-item" href={Element.Link} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                             {
                                                 IsLoggedIn ? (
@@ -351,8 +392,8 @@ export default function NavigationMenu() {
                             {
                                 AllDownloadDropDown.map((Element, idx) => {
                                     return (
-                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
-                                             <li ><a className="dropdown-item" href={Element.Link.replace("/edit", "/export?format=pdf")} download>{Element.Name}</a></li>
+                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
+                                            <li ><a className="dropdown-item" href={Element.Link.replace("/edit", "/export?format=pdf")} download>{Element.Name}</a></li>
                                             {
                                                 IsLoggedIn ? (
                                                     <button className='btn btn-danger' onClick={() => DeleteDownloadDropDown(Element._id)}>Delete</button>
@@ -403,7 +444,7 @@ export default function NavigationMenu() {
                                     {
                                         AllAdmissionDropDown.map((Element, idx) => {
                                             return (
-                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
+                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
                                                     <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                                     {
                                                         IsLoggedIn ? (
@@ -424,8 +465,8 @@ export default function NavigationMenu() {
                             {
                                 IsLoggedIn ? (
                                     <>
-                                        <Link to='/StudentsInfo' className='btn btn-warning'>Student's Info</Link>
-                                        <Link to='/TeacherInfo' className='btn btn-warning'>Teacher's Info</Link>
+                                        {/* <Link to='/StudentsInfo' className='btn btn-warning'>Student's Info</Link>
+                                        <Link to='/TeacherInfo' className='btn btn-warning'>Teacher's Info</Link> */}
                                         <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#AddDropDownModal">Dropdown</button>
                                     </>
                                 ) :
@@ -433,13 +474,13 @@ export default function NavigationMenu() {
                             }
                             <div className="dropend">
                                 <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i className="fa-solid fa-paperclip " />Gallery Links
+                                    <i className="fa-solid fa-paperclip " />Media
                                 </button>
                                 <ul className="dropdown-menu">
                                     {
                                         AllGalleryDropDown.map((Element, idx) => {
                                             return (
-                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
+                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
                                                     <li ><a className="dropdown-item" href={Element.Link} download target='_blank' rel="noreferrer">{Element.Name}</a></li>
                                                     {
                                                         IsLoggedIn ? (
@@ -462,7 +503,7 @@ export default function NavigationMenu() {
                                     {
                                         AllDownloadDropDown.map((Element, idx) => {
                                             return (
-                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent:'space-between' }}>
+                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
                                                     <li ><a className="dropdown-item" href={Element.Link.replace("/edit", "/export?format=pdf")} download>{Element.Name}</a></li>
                                                     {
                                                         IsLoggedIn ? (
@@ -487,7 +528,8 @@ export default function NavigationMenu() {
                                         <button className='btn btn-danger' onClick={Logout}>Logout<i className="fa-solid fa-right-from-bracket" /></button>
                                     </>
                                 ) :
-                                    <button type="button" className='btn btn-danger' data-bs-toggle="modal" data-bs-target="#LoginModal"><i className="fa-solid fa-right-to-bracket " />Login</button>
+                                    // <button type="button" className='btn btn-danger' data-bs-toggle="modal" data-bs-target="#LoginModal"><i className="fa-solid fa-right-to-bracket " />Login</button>
+                                    null
                             }
                         </div>
                     </ul>
@@ -568,7 +610,7 @@ export default function NavigationMenu() {
 
             {/* NoticeModal */}
             <div className="modal fade" id="NoticeModal" tabIndex="-1" aria-labelledby="NoticeModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-fullscreen">
+                <div className="modal-dialog modal-xl">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="NoticeModalLabel">Notice</h1>
@@ -636,7 +678,16 @@ export default function NavigationMenu() {
                                 <label>Name:</label>
                                 <input type='text' value={AdmissionsDropdown.Name} onChange={(e) => setAdmissionsDropdown({ ...AdmissionsDropdown, Name: e.target.value })} />
                                 <label>Link:</label>
-                                <input type='url' value={AdmissionsDropdown.Link} onChange={(e) => setAdmissionsDropdown({ ...AdmissionsDropdown, Link: e.target.value })} />
+                                <input type='url' value={AdmissionsDropdown.Link}
+                                    onChange={(e) => {
+                                        const inputLink = e.target.value;
+                                        let convertedLink = inputLink;
+                                        const match = inputLink.match(/docs\.google\.com\/document\/d\/([^/]+)/);
+                                        if (match) {
+                                            convertedLink = `https://docs.google.com/document/d/${match[1]}/export?format=pdf`;
+                                        }
+                                        setAdmissionsDropdown({ ...AdmissionsDropdown, Link: convertedLink });
+                                    }} />
                                 <button type='submit' className='btn btn-warning w-25 mt-1'>Add</button>
                             </form>
                             <h3>Gallery Links</h3>

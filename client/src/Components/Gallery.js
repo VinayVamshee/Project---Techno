@@ -30,7 +30,7 @@ export default function Gallery() {
     const AddNewCard = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("https://project-techno.vercel.app/AddNewCard", { ...Card })
+            await axios.post("http://localhost:3001/AddNewCard", { ...Card })
                 .then(result => {
                     console.log(result)
                     alert('New Card Added')
@@ -45,7 +45,7 @@ export default function Gallery() {
     const AddNewCarousel = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("https://project-techno.vercel.app/AddNewCarouselImage", { ...CarouselImage })
+            await axios.post("http://localhost:3001/AddNewCarouselImage", { ...CarouselImage })
                 .then(result => {
                     console.log(result)
                     alert('New Image Added')
@@ -60,7 +60,7 @@ export default function Gallery() {
     const [AllGalleryImages, setAllGalleryImages] = useState([])
 
     const GetGalleryImages = async (id) => {
-        axios.get('https://project-techno.vercel.app/GetGalleryImages/' + id)
+        axios.get('http://localhost:3001/GetGalleryImages/' + id)
             .then(result => setAllGalleryImages(result.data))
             .catch(error => console.log(error))
     }
@@ -69,19 +69,19 @@ export default function Gallery() {
     const [AllCarouselImage, setAllCarouselImage] = useState([]);
 
     useEffect(() => {
-        axios.get('https://project-techno.vercel.app/GetGalleryCard')
+        axios.get('http://localhost:3001/GetGalleryCard')
             .then(result => setAllCard(result.data))
             .catch(error => console.log(error))
     }, [])
 
     useEffect(() => {
-        axios.get('https://project-techno.vercel.app/GetCarouselImage')
+        axios.get('http://localhost:3001/GetCarouselImage')
             .then(result => setAllCarouselImage(result.data))
             .catch(error => console.log(error))
     }, [])
 
     const DeleteCard = async (id) => {
-        axios.delete('https://project-techno.vercel.app/DeleteGalleryCard/' + id)
+        axios.delete('http://localhost:3001/DeleteGalleryCard/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();
@@ -90,7 +90,7 @@ export default function Gallery() {
     }
 
     const DeleteCarouselImage = async (id) => {
-        axios.delete('https://project-techno.vercel.app/DeleteCarouselImage/' + id)
+        axios.delete('http://localhost:3001/DeleteCarouselImage/' + id)
             .then(result => {
                 console.log(result)
                 window.location.reload();

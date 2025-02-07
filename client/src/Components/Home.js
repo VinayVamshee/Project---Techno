@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Logo from './Images/Picture 1.jpeg'
+// import Logo from './Images/Picture 1.jpeg'
 // import Image1 from './Images/CarouselImage1.png'
 // import Image2 from './Images/CarouselImage2.png'
 // import Image3 from './Images/CarouselImage3.png'
@@ -10,38 +10,81 @@ export default function Home() {
     const [AllCarouselImage, setAllCarouselImage] = useState([]);
 
     useEffect(() => {
-        axios.get('https://project-techno.vercel.app/GetCarouselImage')
+        axios.get('http://localhost:3001/GetCarouselImage')
             .then(result => setAllCarouselImage(result.data))
             .catch(error => console.log(error))
     }, [])
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("scaleUp");
+                    } else {
+                        entry.target.classList.remove("scaleUp"); // Remove for re-animation on scroll
+                    }
+                });
+            },
+            { threshold: 0.5 } // Adjusts when animation triggers
+        );
+
+        const elements = document.querySelectorAll(".Intro h1, .tagline, .tagline-description h3, .tagline-description p");
+        elements.forEach((el) => observer.observe(el));
+
+        return () => {
+            elements.forEach((el) => observer.unobserve(el));
+        };
+    }, []);
+
+
+
     return (
         <div className='Home'>
             <div className='Intro'>
-                <div>
+                {/* <div>
                     <img src={Logo} alt='...' />
-                </div>
+                </div> */}
 
                 <h1>Vamshee Techno School</h1>
-                <p style={{ fontWeight: 'bold', fontSize: '20px', fontFamily: 'Times New Roman', color: 'red' }}>Pre-Nursery, Nursery, KG-I, KG-II&Primary English Medium School<br />
+                {/* <p style={{ fontWeight: 'bold', fontSize: '20px', fontFamily: 'Times New Roman', color: 'red' }}>Pre-Nursery, Nursery, KG-I, KG-II&Primary English Medium School<br />
                     Daya Vihar, Ganesh Nagar, Bilaspur (C.G.) - 495 004<br />
                     Recognised by C.G. Board of Secondary Education, Raipur (C.G.)<br />
-                    Contact EM : 8982397404, Email : technoschoolbsp@gmail.com</p>
+                    Contact EM : 8982397404, Email : technoschoolbsp@gmail.com</p> */}
 
-                <p>Greetings and a warm welcome to a world of quality education. This Website is intended to serve as a medium of communication between you and the school.</p>
-
-                <h3 className='my-3'>“Keep Going, Keep Growing”</h3>
-                <p>The above motto itself indicates that the school's sole objective is to assist its students in unfolding their hidden talents and supporting them to keep progressing and growing, ultimately achieving the zenith of success. This is accomplished through an innovative curriculum paired with a wide range of co-curricular activities, carefully designed to strike just the right chord for your child. Every student matters, and every moment counts.</p>
+                <p className='tagline'>Greetings and a warm welcome to a world of quality education!</p>
             </div>
 
-            <div className='About'>
-                <div className="row featurette">
-                    <div className="col-md-7 order-md-2">
-                        <h2 className="featurette-heading fw-normal lh-1 text-center mb-3">About</h2>
-                        <p className="lead">Vamshee Techno School welcomes children to a vibrant learning environment where education is seamlessly woven with enjoyment and playfulness. Our school believes in making the learning journey an exciting adventure, fostering a love for knowledge through interactive and joyful activities. Here, children embark on a discovery of the world around them, engaging in playful exploration that stimulates their curiosity and creativity. With a commitment to providing an enriching and enjoyable educational experience, we strive to create a foundation for lifelong learning while ensuring that every moment is filled with laughter, exploration, and growth.</p>
-                        <p className="lead">In the sensitive task of educating children, parents also have a responsible role to play. Triangular efforts will be beneficial for the complete development of the child. The student’s diary is a tool at your disposal, providing all the information you may wish to know. This will serve as the medium of communication with you about your ward. I kindly request you to spare a little time to read this diary and to place your signature.</p>
-                    </div>
-                    <div className="col-md-5 order-md-1 CarouselImage">
+            <div className='tagline-description'>
+                <h3>“Keep Going, Keep Growing”</h3>
+                <p>More than just a motto, it defines our commitment to fostering growth, unlocking potential, and guiding students toward success. Through a well-rounded curriculum and engaging co-curricular activities, we create an environment where learning is dynamic and development is continuous.
+                    <br />At Vamshee Techno School, every student matters, and every step forward counts.
+                </p>
+            </div>
+
+
+
+
+            {
+                AllCarouselImage.length > 0 && AllCarouselImage.map((Element, idx) => {
+                    return (
+                        <div className={`About ${idx % 2 === 0 ? 'column' : 'column-reverse'}`} key={idx}>
+                            <div className="about-img">
+                                <img src={Element.Image} alt='...' />
+                            </div>
+                            <div className="about-description">
+                                <p>Vamshee Techno School welcomes children into a dynamic and nurturing environment where learning is an inspiring journey filled with curiosity, creativity, and joy. We believe that education should be both engaging and meaningful, seamlessly blending academics with interactive experiences that spark a lifelong love for knowledge. Through playful exploration and thoughtfully designed activities, we encourage young minds to discover, question, and grow.
+                                    We recognize that education is a shared responsibility between the school, students, and parents. A strong partnership ensures the holistic development of every child.
+                                </p>
+                            </div>
+                        </div>
+                    )
+                })
+            }
+
+
+
+            {/* <div className="col-md-5 order-md-1 CarouselImage">
                         <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
                                 {
@@ -70,9 +113,8 @@ export default function Home() {
                                 <span className="visually-hidden">Next</span>
                             </button>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </div> */}
+
         </div>
     )
 }
