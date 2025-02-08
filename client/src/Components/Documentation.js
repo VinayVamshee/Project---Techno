@@ -75,9 +75,6 @@ export default function Documentation() {
   };
 
 
-  console.log(flipbookRef.current); // Check if the reference is valid
-
-
 
 
   return (
