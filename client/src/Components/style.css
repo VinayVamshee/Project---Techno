@@ -1046,7 +1046,7 @@ i {
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: rgba(255, 255, 255, 0.214);
 }
 
@@ -1094,8 +1094,15 @@ i {
 /* Page number indicator */
 .page-indicator {
   margin-top: 10px;
-  text-align: center;
+  text-align: right;
   font-size: 16px;
   font-weight: bold;
   color: #333;
+}
+
+.page-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
