@@ -71,10 +71,12 @@ export default function Home() {
     const [imageLink, setImageLink] = useState('');
     const [description, setDescription] = useState('');
 
-    const handleUpload = () => {
+    const handleUpload = (e) => {
+        e.preventDefault();
         axios.post('https://project-techno.vercel.app/postHomeImage', { imageLink, description })
             .then(response => {
                 alert(response.data.message);
+                window.location.reload();
             })
             .catch(error => console.error('Error uploading home image:', error));
     };
