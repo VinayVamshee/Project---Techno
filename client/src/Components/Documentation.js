@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import HTMLFlipBook from 'react-pageflip';
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -18,6 +18,7 @@ Pages.displayName = 'Pages';
 export default function Documentation() {
 
   const flipSound = new Audio(flipAudio);
+  const flipbookRef = useRef(null);
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -59,6 +60,26 @@ export default function Documentation() {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
+  const flipToNextPage = () => {
+    if (currentPage < numPages) {
+      flipbookRef.current.pageFlip().flipNext(['top']);
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const flipToPrevPage = () => {
+    if (currentPage > 1) {
+      flipbookRef.current.pageFlip().flipPrev(['top']);
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+
+  console.log(flipbookRef.current); // Check if the reference is valid
+
+
+
+
   return (
     <div className="flipbook-container">
       {file ? (
@@ -66,16 +87,27 @@ export default function Documentation() {
           <a href={file} download className="btn">
             Download PDF
           </a>
+          <div className="page-navigation">
+          <button onClick={flipToPrevPage} disabled={currentPage === 1} className="btn" style={{ marginRight: '10px' }}>
+              Prev Page
+            </button>
+            <button onClick={flipToNextPage} disabled={currentPage === numPages} className="btn">
+              Next Page
+            </button>
+          </div>
+
           <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
             {numPages && (
               <>
                 <HTMLFlipBook
+                ref={flipbookRef}
                   width={dimensions.width}
                   height={dimensions.height}
                   showCover={false}
                   mobileScrollSupport={true}
                   onFlip={handleFlip}
                   className='flipbook'  // Flipbook styling
+                  
                 >
                   {[...Array(numPages).keys()].map((pNum) => (
                     <Pages key={pNum} number={pNum + 1} className="flipbook-page">
