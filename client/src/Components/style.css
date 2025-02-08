@@ -48,6 +48,11 @@
   color: white;
 }
 
+.NavigatioinMenu .Logo .logo-title h3 {
+  font-size: larger;
+  margin-top: 7px;
+}
+
 .NavigatioinMenu .Logo .logo-title {
   display: flex;
   justify-content: center;
@@ -56,8 +61,8 @@
 }
 
 .NavigatioinMenu .Logo .logo-title img {
-  height: 40px;
-  width: 40px;
+  height: 34px;
+  width: 34px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -69,8 +74,6 @@ i {
 
 .Documents {
   /* background-image: url('./Images/Wallpaper4.jpg'); */
-  background-repeat: no-repeat;
-  background-size: cover;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -200,7 +203,7 @@ i {
   justify-content: center;
   align-items: center;
   gap: 10px;
-
+  width: 60%;
 }
 
 .NavButtons .btn {
@@ -360,7 +363,7 @@ i {
 
 .Foot {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.871);
+  background-color: rgba(0, 0, 0, 0.431);
   color: white;
   position: fixed;
   bottom: 0;
@@ -738,6 +741,10 @@ i {
 
 
 @media (max-width: 1000px) {
+
+  .NavButtons i {
+    display: none;
+  }
 
   .about-img {
     height: 250px;
