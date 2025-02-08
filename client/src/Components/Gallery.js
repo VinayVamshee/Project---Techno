@@ -23,7 +23,7 @@ export default function Gallery() {
     const [Card, setCard] = useState({
         MainImage: '',
         Description: '',
-        AdditionalImages: [],
+        Link: '',
         YoutubeLink: ''
     })
 
@@ -57,13 +57,13 @@ export default function Gallery() {
         }
     }
 
-    const [AllGalleryImages, setAllGalleryImages] = useState([])
+    // const [AllGalleryImages, setAllGalleryImages] = useState([])
 
-    const GetGalleryImages = async (id) => {
-        axios.get('https://project-techno.vercel.app/GetGalleryImages/' + id)
-            .then(result => setAllGalleryImages(result.data))
-            .catch(error => console.log(error))
-    }
+    // const GetGalleryImages = async (id) => {
+    //     axios.get('https://project-techno.vercel.app/GetGalleryImages/' + id)
+    //         .then(result => setAllGalleryImages(result.data))
+    //         .catch(error => console.log(error))
+    // }
 
     const [AllCard, setAllCard] = useState([]);
     const [AllCarouselImage, setAllCarouselImage] = useState([]);
@@ -98,24 +98,24 @@ export default function Gallery() {
             .catch(error => console.log(error))
     }
 
-    const handleImageChange = (e) => {
-        const urls = e.target.value.split(',').map((url) => url.trim());
+    // const handleImageChange = (e) => {
+    //     const urls = e.target.value.split(',').map((url) => url.trim());
     
-        const convertUrl = (url) => {
-            if (!url.includes("drive.google.com")) {
-                return url;
-            }
+    //     const convertUrl = (url) => {
+    //         if (!url.includes("drive.google.com")) {
+    //             return url;
+    //         }
     
-            const match = url.match(/\/d\/(.*?)\//);
-            const fileId = match ? match[1] : null;
-            const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
+    //         const match = url.match(/\/d\/(.*?)\//);
+    //         const fileId = match ? match[1] : null;
+    //         const viewableUrl = fileId ? `https://drive.google.com/uc?id=${fileId}` : null;
     
-            return viewableUrl;
-        };
+    //         return viewableUrl;
+    //     };
     
-        const convertedURLs = urls.map(convertUrl);
-        setCard((prevCard) => ({ ...prevCard, AdditionalImages: convertedURLs }));
-    };
+    //     const convertedURLs = urls.map(convertUrl);
+    //     setCard((prevCard) => ({ ...prevCard, AdditionalImages: convertedURLs }));
+    // };
     
 
     const ChangeCarouselUrl = (e) => {
@@ -167,7 +167,7 @@ export default function Gallery() {
                                     {
                                         IsLoggedIn ? (
                                             <div style={{ marginTop: '10px' }}>
-                                                <button className='btn btn-danger' onClick={() => DeleteCarouselImage(AllCarouselImage._id)}><i className="fa-solid fa-trash " />Delete</button>
+                                                <button className='btn btn-danger' onClick={() => DeleteCarouselImage(AllCarouselImage[AllCarouselImage.length - 1]._id)}><i className="fa-solid fa-trash " />Delete</button>
                                             </div>
                                         ) :
                                             null
@@ -225,14 +225,14 @@ export default function Gallery() {
                                             <p className="card-text">{Element.Description}</p>
                                             <div className="d-flex justify-content-between align-items-center">
                                                 <div className="btn-group">
-                                                    <button type="button" className="btn btn-sm btn-outline-primary" onClick={() => GetGalleryImages(Element._id)} data-bs-toggle="modal" data-bs-target="#ViewMoreModal">View More...</button>
+                                                    <a href={Element.Link} target='_blank' rel="noreferrer" type="button" className="btn btn-sm btn-outline-primary" >View More...</a>
                                                     {
                                                         IsLoggedIn ? (
                                                             <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => DeleteCard(Element._id)}><i className="fa-solid fa-trash " />Delete</button>
                                                         ) :
                                                             null
                                                     }
-                                                    <a type="button" href={Element.YoutubeLink} target='_blank' rel="noreferrer" className="btn btn-sm btn-outline-danger ms-1 rounded-circle"><i className="fa-brands fa-youtube " /></a>
+                                                    <a type="button" href={Element.YoutubeLink} target='_blank' rel="noreferrer" className="btn btn-sm btn-outline-danger ms-1 rounded-circle d-flex align-items-center"><i className="fa-brands fa-youtube " /></a>
                                                 </div>
                                                 <small className="text-body-secondary">Vamshee Techno School</small>
                                             </div>
@@ -285,8 +285,8 @@ export default function Gallery() {
                                 <input value={Card.MainImage} onChange={ChangeCardlUrl} type='url'></input>
                                 <label>Card Description:</label>
                                 <input value={Card.Description} onChange={(e) => setCard({ ...Card, Description: e.target.value })} type='text'></input>
-                                <label>Additional Images:</label>
-                                <textarea value={Card.AdditionalImages} onChange={handleImageChange} type='url'></textarea>
+                                <label>Google Drive Link:</label>
+                               <input value={Card.Link} onChange={(e) => setCard({...Card, Link: e.target.value})} type='url'></input>
 
                                 <label>Youtube Link:</label>
                                 <input value={Card.YoutubeLink} onChange={(e) => setCard({ ...Card, YoutubeLink: e.target.value })} type='text'></input>
@@ -323,7 +323,7 @@ export default function Gallery() {
             </div>
 
             {/* ViewMoreModal */}
-            <div className="modal fade" id="ViewMoreModal" tabIndex="-1" aria-labelledby="ViewMoreModalLabel" aria-hidden="true">
+            {/* <div className="modal fade" id="ViewMoreModal" tabIndex="-1" aria-labelledby="ViewMoreModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-xl">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -343,7 +343,7 @@ export default function Gallery() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
