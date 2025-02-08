@@ -76,35 +76,22 @@ export default function Documentation() {
 
 
 
-
   return (
     <div className="flipbook-container">
       {file ? (
         <div className='view-download'>
-          <a href={file} download className="btn">
-            Download PDF
-          </a>
-          <div className="page-navigation">
-          <button onClick={flipToPrevPage} disabled={currentPage === 1} className="btn" style={{ marginRight: '10px' }}>
-              Prev Page
-            </button>
-            <button onClick={flipToNextPage} disabled={currentPage === numPages} className="btn">
-              Next Page
-            </button>
-          </div>
-
           <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
             {numPages && (
               <>
                 <HTMLFlipBook
-                ref={flipbookRef}
+                  ref={flipbookRef}
                   width={dimensions.width}
                   height={dimensions.height}
                   showCover={false}
                   mobileScrollSupport={true}
                   onFlip={handleFlip}
                   className='flipbook'  // Flipbook styling
-                  
+
                 >
                   {[...Array(numPages).keys()].map((pNum) => (
                     <Pages key={pNum} number={pNum + 1} className="flipbook-page">
@@ -125,6 +112,18 @@ export default function Documentation() {
               </>
             )}
           </Document>
+          <div className="page-navigation">
+            <button onClick={flipToPrevPage} disabled={currentPage === 1} className="btn">
+              Prev Page
+            </button>
+            <a href={file} download className="btn">
+              Download PDF
+            </a>
+            <button onClick={flipToNextPage} disabled={currentPage === numPages} className="btn">
+              Next Page
+            </button>
+          </div>
+
         </div>
 
       ) : (
