@@ -35,7 +35,7 @@
   align-items: center;
   border-bottom: .5px solid rgb(57, 57, 57);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.256);
-  background-color: rgba(0, 0, 0, 0.871);
+  background-color: #223a43f0;
   color: white;
   /* background-image: url('./Images/Wallpaper4.jpg'); */
   position: sticky;
@@ -363,7 +363,7 @@ i {
 
 .Foot {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.431);
+  background-color: #223a43d6;
   color: white;
   position: fixed;
   bottom: 0;
@@ -458,11 +458,12 @@ i {
   background: linear-gradient(45deg, rgb(17, 242, 17), rgb(255, 255, 83), rgb(255, 11, 11));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
 }
 
 .Intro .tagline {
   font-size: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.495);
+  background-color: #223a43cd;
   padding: 5px;
   border-radius: 25px;
   width: fit-content;
@@ -492,7 +493,7 @@ i {
 .tagline-description p {
   font-size: 1.5rem;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.495);
+  background-color: #223a43cd;
   padding: 5px;
   border-radius: 25px;
   opacity: 0;
@@ -513,7 +514,7 @@ i {
 .About {
   width: 100%;
   padding: 30px;
-  background-color: rgba(255, 255, 255, 0.449);
+  background-color: #223a4327;
   color: black;
 
   display: flex;
