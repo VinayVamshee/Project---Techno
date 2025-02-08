@@ -500,7 +500,7 @@ export default function NavigationMenu() {
                                 </ul>
 
                             </div>
-                            <button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
+                            <button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"> <span><i className="fa-solid fa-newspaper" />Notice</span>  </button>
                             <Link to='/Gallery' className='btn '><i className="fa-regular fa-images" />Gallery</Link>
                             <button type="button" className='btn ' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
                             {
