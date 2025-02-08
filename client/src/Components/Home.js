@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Logo from './Images/Picture 1.jpeg'
+import Logo from './Images/Bada school logo.png'
 // import Image1 from './Images/CarouselImage1.png'
 // import Image2 from './Images/CarouselImage2.png'
 // import Image3 from './Images/CarouselImage3.png'
