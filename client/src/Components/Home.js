@@ -22,7 +22,7 @@ export default function Home() {
     // const [AllCarouselImage, setAllCarouselImage] = useState([]);
 
     // useEffect(() => {
-    //     axios.get('http://localhost:3001/GetCarouselImage')
+    //     axios.get('https://project-techno.vercel.app/GetCarouselImage')
     //         .then(result => setAllCarouselImage(result.data))
     //         .catch(error => console.log(error))
     // }, [])
@@ -54,13 +54,13 @@ export default function Home() {
     const [homeImages, setHomeImages] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/getHomeImages')
+        axios.get('https://project-techno.vercel.app/getHomeImages')
             .then(response => setHomeImages(response.data.data))
             .catch(error => console.error('Error fetching home images:', error));
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:3001/deleteHomeImage/${id}`)
+        axios.delete(`https://project-techno.vercel.app/deleteHomeImage/${id}`)
             .then(response => {
                 alert(response.data.message);
                 setHomeImages(homeImages.filter(image => image._id !== id)); // Remove from UI
@@ -72,7 +72,7 @@ export default function Home() {
     const [description, setDescription] = useState('');
 
     const handleUpload = () => {
-        axios.post('http://localhost:3001/postHomeImage', { imageLink, description })
+        axios.post('https://project-techno.vercel.app/postHomeImage', { imageLink, description })
             .then(response => {
                 alert(response.data.message);
             })
