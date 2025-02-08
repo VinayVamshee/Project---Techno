@@ -380,9 +380,9 @@ export default function NavigationMenu() {
                             null
                     }
                     <div className="dropdown">
-                        <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {/* <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i className="fa-solid fa-paperclip " />Media
-                        </button>
+                        </button> */}
                         <ul className="dropdown-menu">
                             {
                                 AllGalleryDropDown.map((Element, idx) => {
@@ -514,9 +514,9 @@ export default function NavigationMenu() {
                                     null
                             }
                             <div className="dropend">
-                                <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {/* <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i className="fa-solid fa-paperclip " />Media
-                                </button>
+                                </button> */}
                                 <ul className="dropdown-menu">
                                     {
                                         AllGalleryDropDown.map((Element, idx) => {
