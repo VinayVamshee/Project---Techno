@@ -371,7 +371,8 @@ i {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 5px;;
+  gap: 5px;
+  ;
   z-index: 1000;
 }
 
@@ -636,22 +637,23 @@ i {
     justify-content: center;
     gap: 2px;
   }
-  
+
   .NavigatioinMenu .Logo .logo-title {
     gap: 1px;
   }
+
   .NavigatioinMenu .Logo .logo-title h3 {
     margin-top: 10px;
     font-size: large;
   }
-  
+
   .NavigatioinMenu .Logo .logo-title img {
     height: 30px;
     width: 30px;
     border-radius: 50%;
     object-fit: cover;
   }
-  
+
 
   /* .Menu {
     display: block;
@@ -713,6 +715,7 @@ i {
 }
 
 @media (max-width: 1150px) {
+
   /* .NoticeBoard iframe {
     width: 1000px;
     height: 900px;
@@ -721,10 +724,11 @@ i {
     height: 300px;
     width: 100%;
   }
+
   .About .about-description p {
     font-size: medium;
   }
-  
+
 }
 
 @media (max-width: 1050px) {
@@ -787,6 +791,7 @@ i {
     height: 210px;
     width: 100%;
   }
+
   .About .about-description p {
     font-size: medium;
   }
@@ -847,6 +852,7 @@ i {
     white-space: nowrap;
     font-size: 3.5rem;
   }
+
   .Intro .tagline {
     font-size: large;
   }
@@ -855,6 +861,7 @@ i {
     white-space: nowrap;
     font-size: 3rem;
   }
+
   .tagline-description p {
     font-size: large;
   }
@@ -870,14 +877,16 @@ i {
   }
 
   .about-img {
-    width: 100%;
+    height: 320px;
   }
 
   .about-img img {
-    width: 70%;
+    width: 100%;
+
   }
 
   .about-description p {
+    margin: 10px;
     padding: 10px;
   }
 
@@ -900,7 +909,7 @@ i {
     align-items: flex-start;
   }
 
-  .Menu .collapse .card .NavButtons .btn{
+  .Menu .collapse .card .NavButtons .btn {
     text-align: start;
     width: 100%;
     background-color: white;
@@ -928,7 +937,7 @@ i {
   .Menu .btn.menutab:hover {
     color: white;
   }
-  
+
   .Excel button {
     font-size: 0px;
   }
@@ -940,7 +949,7 @@ i {
 
 @media (max-width: 680px) {
   .Intro img {
-    height: 250px;
+    height: 350px;
   }
 }
 
@@ -960,6 +969,17 @@ i {
 }
 
 @media (max-width: 600px) {
+
+  .Intro {
+    justify-content: flex-start;
+    margin: 15vh;
+    height: max-content;
+  }
+
+  .tagline-description {
+    height: fit-content;
+  }
+
   .Actions form input {
     width: 200px;
   }
@@ -1006,7 +1026,7 @@ i {
   }
 
   .Intro img {
-    height: 200px;
+    height: 300px;
   }
 }
 
@@ -1016,7 +1036,7 @@ i {
   }
 
   .Intro img {
-    height: 150px;
+    height: 300px;
   }
 
   .AdditionalImages img {
