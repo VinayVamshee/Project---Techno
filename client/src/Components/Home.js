@@ -19,13 +19,13 @@ export default function Home() {
         }
     }, [])
 
-    const [AllCarouselImage, setAllCarouselImage] = useState([]);
+    // const [AllCarouselImage, setAllCarouselImage] = useState([]);
 
-    useEffect(() => {
-        axios.get('http://localhost:3001/GetCarouselImage')
-            .then(result => setAllCarouselImage(result.data))
-            .catch(error => console.log(error))
-    }, [])
+    // useEffect(() => {
+    //     axios.get('http://localhost:3001/GetCarouselImage')
+    //         .then(result => setAllCarouselImage(result.data))
+    //         .catch(error => console.log(error))
+    // }, [])
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -82,7 +82,7 @@ export default function Home() {
 
     return (
         <div className='Home'>
-            
+
             <div className='Intro'>
                 {/* <div>
                     <img src={Logo} alt='...' />
@@ -103,10 +103,16 @@ export default function Home() {
                     <br />At Vamshee Techno School, every student matters, and every step forward counts.
                 </p>
             </div>
+            {
+                IsLoggedIn ?
+                    <button type="button" className="btn btn-warning my-2" data-bs-toggle="modal" data-bs-target="#AddImageTextModal">
+                        Add Image & Context
+                    </button>
+                    :
+                    null
+            }
 
-            <button type="button" class="btn btn-warning my-2" data-bs-toggle="modal" data-bs-target="#AddImageTextModal">
-                Add Image & Context
-            </button>
+
             {
                 homeImages.length > 0 && homeImages.map((Element, idx) => {
                     return (
@@ -180,26 +186,26 @@ export default function Home() {
                     </div> */}
 
 
-            
 
 
-            <div class="modal fade" id="AddImageTextModal" tabindex="-1" aria-labelledby="AddImageTextModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+
+            <div className="modal fade" id="AddImageTextModal" tabIndex="-1" aria-labelledby="AddImageTextModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
                         <form className='text-dark' onSubmit={handleUpload}>
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="AddImageTextModalLabel">Add Image & Context</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div className="modal-header">
+                                <h1 className="modal-title fs-5" id="AddImageTextModalLabel">Add Image & Context</h1>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body AddModal">
+                            <div className="modal-body AddModal">
                                 <lable>Image Url</lable>
                                 <input type="text" placeholder="Image URL" value={imageLink} onChange={(e) => setImageLink(e.target.value)} />
                                 <lable>Description</lable>
                                 <input type="text" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" className="btn btn-primary">Save changes</button>
                             </div>
                         </form>
                     </div>

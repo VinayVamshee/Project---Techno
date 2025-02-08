@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import HTMLFlipBook from 'react-pageflip';
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -35,6 +35,30 @@ export default function Documentation() {
     setCurrentPage(event.data + 1);
   }
 
+  const [dimensions, setDimensions] = useState({ width: 500, height: 707 });
+
+  useEffect(() => {
+    function updateDimensions() {
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth > 800) {
+        // Use default dimensions for larger screens
+        setDimensions({ width: 500, height: 707 });
+      } else {
+        // Calculate dimensions for smaller screens based on A4 aspect ratio
+        const responsiveWidth = screenWidth * 0.9; // 90% of the screen width
+        const responsiveHeight = responsiveWidth * 1.414; // A4 aspect ratio
+        setDimensions({ width: responsiveWidth, height: responsiveHeight });
+      }
+    }
+
+    // Update dimensions initially and on window resize
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
   return (
     <div className="flipbook-container">
       {file ? (
@@ -46,8 +70,8 @@ export default function Documentation() {
             {numPages && (
               <>
                 <HTMLFlipBook
-                  width={500}
-                  height={707}
+                  width={dimensions.width}
+                  height={dimensions.height}
                   showCover={false}
                   mobileScrollSupport={true}
                   onFlip={handleFlip}
@@ -57,7 +81,7 @@ export default function Documentation() {
                     <Pages key={pNum} number={pNum + 1} className="flipbook-page">
                       <Page
                         pageNumber={pNum + 1}
-                        width={500}
+                        width={dimensions.width}
                         renderAnnotationLayer={false}
                         renderTextLayer={false}
                         className="pdf-page"  // Individual PDF Page styling

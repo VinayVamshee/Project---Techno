@@ -12,6 +12,7 @@ import { jwtDecode } from 'jwt-decode';
 
 import Documentation from './Components/Documentation';
 import axios from 'axios';
+import Footer from './Components/Footer';
 
 function App() {
 
@@ -66,7 +67,7 @@ function App() {
           {/* <Route path='/Documents' exact element={<Documents />} /> */}
           <Route path='/Documentation' exact element={<Documentation />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </div>
   );

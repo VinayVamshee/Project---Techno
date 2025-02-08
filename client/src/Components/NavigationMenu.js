@@ -287,11 +287,15 @@ export default function NavigationMenu() {
     const [newImageUrl, setNewImageUrl] = useState('');
 
 
-    const uploadBackgroundImage = () => {
+    const uploadBackgroundImage = (e) => {
+        e.preventDefault();
+
         axios.post('http://localhost:3001/postBackgroundImage', { imageUrl: newImageUrl })
             .then(response => {
+                console.log(response);
                 setNewImageUrl('');
                 alert('Background image updated!');
+                window.location.reload();
             })
             .catch(error => console.error('Error updating background image:', error));
     };
@@ -306,7 +310,7 @@ export default function NavigationMenu() {
                             null
                         ) :
                             <Link className='logo-title' to='/'>
-                                <h3><img src={Logo} alt='...' /> Vamshee Techno School</h3>
+                                <img src={Logo} alt='...' /><h3> Vamshee Techno School </h3><h4>VTS</h4>
                             </Link>
 
                     }
@@ -316,11 +320,11 @@ export default function NavigationMenu() {
                     <Link to='/' className='btn '>Home</Link>
                     {/* <Link to='/Documents' className='btn'><i className="fa-solid fa-paperclip " />Academics</Link> */}
 
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div className="dropdown">
+                        <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i className="fa-solid fa-paperclip " />Academics
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul className="dropdown-menu">
                             {AllAcademicDropDown.map((Element, idx) => (
                                 <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
                                     <li><button className='dropdown-item' onClick={() => handleDocumentOpen(Element.Link)} >{Element.Name}</button></li>
@@ -335,7 +339,7 @@ export default function NavigationMenu() {
                     </div>
 
                     <div className="dropdown">
-                        <button to='/Documents' className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i className="fa-solid fa-paperclip " />Admissions
                         </button>
                         <ul className="dropdown-menu">
@@ -360,8 +364,8 @@ export default function NavigationMenu() {
                                 </div>
                             ))}
                         </ul>
-
                     </div>
+
                     <button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"> <span><i className="fa-solid fa-newspaper" />Notice</span>  </button>
                     <Link to='/Gallery' className='btn '><i className="fa-regular fa-images" />Gallery</Link>
                     <button type="button" className='btn ' data-bs-toggle="modal" data-bs-target="#CalendarModal"><i className="fa-solid fa-calendar-days " />Calendar</button>
@@ -399,7 +403,7 @@ export default function NavigationMenu() {
                     </div>
                     <div className="dropdown">
                         {/* <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-download" />Downloads
+                            <i className="fa-solid fa-download" />Downloads
                         </button> */}
                         <ul className="dropdown-menu">
                             {
@@ -421,7 +425,7 @@ export default function NavigationMenu() {
                     </div>
 
 
-                    <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
+                    {/* <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button> */}
                 </div>
 
                 <div className='Authenticate'>
@@ -441,36 +445,60 @@ export default function NavigationMenu() {
             </div>
 
             <div className='Menu'>
-                <div className="dropdown">
-                    <button className="btn text-dark menutab" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i className="fa-solid fa-bars text-dark"></i> <p>Vamshee Techno School</p>
-                    </button>
-                    <ul className="dropdown-menu">
+
+                <button className="btn menutab" type="button" data-bs-toggle="collapse" data-bs-target="#MenuCollapse" aria-expanded="false" aria-controls="MenuCollapse">
+                    <i className="fa-solid fa-bars text-light" /> <p className='mt-3'>Vamshee Techno School</p>
+                </button>
+
+                <div className="collapse" id="MenuCollapse">
+                    <div className="card card-body">
                         <div className='NavButtons'>
                             <Link to='/' className='btn '>Home</Link>
-                            <Link to='/Documents' className='btn'><i className="fa-solid fa-paperclip " />Academics</Link>
-                            <div className="dropend">
-                                <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div className="dropdown">
+                                <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i className="fa-solid fa-paperclip " />Academics
+                                </button>
+                                <ul className="dropdown-menu">
+                                    {AllAcademicDropDown.map((Element, idx) => (
+                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
+                                            <li><button className='dropdown-item' onClick={() => handleDocumentOpen(Element.Link)} >{Element.Name}</button></li>
+                                            {
+                                                IsLoggedIn && (
+                                                    <button className='btn btn-danger' onClick={() => DeleteAcademicDropDown(Element._id)}>Delete</button>
+                                                )
+                                            }
+                                        </div>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className="dropdown">
+                                <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i className="fa-solid fa-paperclip " />Admissions
                                 </button>
                                 <ul className="dropdown-menu">
-                                    {
-                                        AllAdmissionDropDown.map((Element, idx) => {
-                                            return (
-                                                <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
-                                                    <li ><a className="dropdown-item" href={Element.Link.replace('/edit', '/preview')} target='_blank' rel="noreferrer">{Element.Name}</a></li>
-                                                    {
-                                                        IsLoggedIn ? (
-                                                            <button className='btn btn-danger' onClick={() => DeleteAdmissionDropDown(Element._id)}>Delete</button>
-                                                        ) :
-                                                            null
-                                                    }
-
-                                                </div>
-                                            )
-                                        })
-                                    }
+                                    {AllAdmissionDropDown.map((Element, idx) => (
+                                        <div key={idx} style={{ display: 'flex', gap: '2px', padding: '2px', justifyContent: 'space-between' }}>
+                                            <li>
+                                                <button
+                                                    className="dropdown-item"
+                                                    onClick={() => handleDocumentOpen(Element.Link)} // Directly using the stored PDF link
+                                                >
+                                                    {Element.Name}
+                                                </button>
+                                            </li>
+                                            {IsLoggedIn && (
+                                                <button
+                                                    className="btn btn-danger"
+                                                    onClick={() => DeleteAdmissionDropDown(Element._id)}
+                                                >
+                                                    Delete
+                                                </button>
+                                            )}
+                                        </div>
+                                    ))}
                                 </ul>
+
                             </div>
                             <button type="button" className='NewNoticebtn btn ' data-bs-toggle="modal" data-bs-target="#NoticeModal"><i className="fa-solid fa-newspaper" /> <span>New</span>  Notice</button>
                             <Link to='/Gallery' className='btn '><i className="fa-regular fa-images" />Gallery</Link>
@@ -510,7 +538,7 @@ export default function NavigationMenu() {
 
                             <div className="dropdown">
                                 {/* <button className="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-download" />Downloads
+                                    <i className="fa-solid fa-download" />Downloads
                                 </button> */}
                                 <ul className="dropdown-menu">
                                     {
@@ -532,7 +560,7 @@ export default function NavigationMenu() {
                             </div>
 
 
-                            <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button>
+                            {/* <button className='btn  disabled'><i className="fa-solid fa-handshake-angle " />Help</button> */}
 
                             {
                                 IsLoggedIn ? (
@@ -545,7 +573,7 @@ export default function NavigationMenu() {
                                     null
                             }
                         </div>
-                    </ul>
+                    </div>
                 </div>
             </div>
 
@@ -629,7 +657,7 @@ export default function NavigationMenu() {
                             <h1 className="modal-title fs-5" id="NoticeModalLabel">Notice</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className="modal-body">
+                        <div className="modal-body Notice">
                             <div className='NoticeBoard'>
                                 {
                                     AllNotice.map((Element, idx) => {
@@ -713,7 +741,7 @@ export default function NavigationMenu() {
                             </form>
                             <h3>Background Image</h3>
                             <form className='AddModal' onSubmit={uploadBackgroundImage}>
-                                <input type='url' placeholder="Enter image URL" value={newImageUrl} onChange={(e) => setNewImageUrl(e.target.value)}/>
+                                <input type='url' placeholder="Enter image URL" value={newImageUrl} onChange={(e) => setNewImageUrl(e.target.value)} />
                                 <button type='submit' className='btn btn-warning w-25 mt-1'>Save</button>
                             </form>
                             <h3>Downloads</h3>

@@ -37,10 +37,7 @@
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.256);
   background-color: rgba(0, 0, 0, 0.871);
   color: white;
-  /* background-color:  rgb(211, 225, 181); */
   /* background-image: url('./Images/Wallpaper4.jpg'); */
-  background-repeat: no-repeat;
-  background-size: cover;
   position: sticky;
   z-index: 1000;
   top: 0;
@@ -58,7 +55,7 @@
   gap: 5px;
 }
 
-.NavigatioinMenu .Logo .logo-title img{
+.NavigatioinMenu .Logo .logo-title img {
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -117,9 +114,11 @@ i {
   0% {
     color: red;
   }
+
   50% {
     color: blue;
   }
+
   100% {
     color: red;
   }
@@ -148,9 +147,19 @@ i {
   display: none;
 }
 
+.Notice {
+  width: 100%;
+  height: 600px;
+}
+
+.NoticeBoard {
+  width: 100%;
+  height: 100%;
+}
+
 .NoticeBoard iframe {
   width: 1000px;
-  height: 1120px;
+  height: 600px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
@@ -185,10 +194,6 @@ i {
   white-space: nospace;
 }
 
-.Logo h3 {
-  white-space: nospace;
-  font-size: x-large;
-}
 
 .NavButtons {
   padding: 5px;
@@ -206,6 +211,8 @@ i {
 }
 
 .NavButtons .btn:hover {
+  color: black;
+  background-color: white;
   transform: scale(1.1);
   transition: .3s ease;
 }
@@ -346,17 +353,45 @@ i {
 
 .Foot {
   width: 100%;
-  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.871);
   color: white;
   position: fixed;
   bottom: 0;
   height: 50px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 5px;;
   z-index: 1000;
 }
 
+.Foot footer {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Foot footer ul {
+  display: flex;
+  gap: 5px;
+}
+
+.Foot .btn {
+  color: white;
+  border: 0.5px solid white;
+}
+
+.Foot .btn:hover {
+  color: black;
+  background-color: white;
+}
+
 .Home {
+  margin-bottom: 50px;
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -533,7 +568,7 @@ i {
   font-weight: 500;
 }
 
-@media screen and (max-width: 1400px) {
+/* @media screen and (max-width: 1400px) {
   * {
     font-size: 13px;
   }
@@ -574,26 +609,58 @@ i {
   .Actions form input {
     width: 300px;
   }
+} */
+
+.logo-title h4 {
+  display: none;
 }
 
 @media (max-width: 1200px) {
   .NavigatioinMenu {
-    display: none;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .Menu {
+  .NavButtons {
+    padding: 1px;
+    justify-content: center;
+    gap: 2px;
+  }
+  
+  .NavigatioinMenu .Logo .logo-title {
+    gap: 1px;
+  }
+  .NavigatioinMenu .Logo .logo-title h3 {
+    margin-top: 10px;
+    font-size: large;
+  }
+  
+  .NavigatioinMenu .Logo .logo-title img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+
+  /* .Menu {
     display: block;
     position: relative;
     width: 100%;
     height: 30px;
-    background-image: url('./Images/Wallpaper5.jpg');
+    /* background-image: url('./Images/Wallpaper5.jpg');
+    color: black;
 
-  }
+  } */
 
-  .menutab {
+  /* .menutab {
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+
+  .menutab p {
+    color: white;
   }
 
   .menutab p {
@@ -623,7 +690,16 @@ i {
 
   .dropdown-menu .btn {
     width: fit-content;
-  }
+    color: black;
+  } */
+}
+
+.Intro h1 {
+  white-space: nowrap;
+}
+
+.tagline-description h3 {
+  white-space: nowrap;
 }
 
 @media (max-width: 1150px) {
@@ -631,6 +707,14 @@ i {
     width: 1000px;
     height: 900px;
   } */
+  .about-img {
+    height: 300px;
+    width: 100%;
+  }
+  .About .about-description p {
+    font-size: medium;
+  }
+  
 }
 
 @media (max-width: 1050px) {
@@ -645,7 +729,25 @@ i {
   }
 }
 
+
+
 @media (max-width: 1000px) {
+
+  .about-img {
+    height: 250px;
+    width: 100%;
+  }
+
+  .logo-title h4 {
+    margin-top: 10px;
+    margin-left: 2px;
+    display: block;
+  }
+
+  .NavigatioinMenu .Logo .logo-title h3 {
+    display: none;
+  }
+
   .calendar .modal-body {
     flex-direction: column;
     gap: 10px;
@@ -657,7 +759,23 @@ i {
   }
 }
 
+
+
+
 @media (max-width: 850px) {
+
+  .about-img {
+    height: 210px;
+    width: 100%;
+  }
+  .About .about-description p {
+    font-size: medium;
+  }
+
+  .logo-title h4 {
+    display: none;
+  }
+
   .Gallery {
     padding: 10px;
     gap: 20px;
@@ -705,10 +823,87 @@ i {
     width: 600px;
     height: 500px;
   }
+
+  .Intro h1 {
+    white-space: nowrap;
+    font-size: 3.5rem;
+  }
+
+  .tagline-description h3 {
+    white-space: nowrap;
+    font-size: 3rem;
+  }
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 777px) {
+
+  .About {
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .about-img {
+    width: 100%;
+  }
+
+  .about-img img {
+    width: 70%;
+  }
+
+  .about-description p {
+    padding: 10px;
+  }
+
+  .Menu {
+    display: block;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.871);
+  }
+
+  .Menu .collapse .card {
+    border-radius: 0px;
+  }
+
+  .Menu .collapse .card .NavButtons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .Menu .collapse .card .NavButtons .btn{
+    text-align: start;
+    width: 100%;
+    background-color: white;
+    color: black;
+  }
+
+  .NewNoticebtn {
+    justify-content: flex-start;
+  }
+
+  .NavigatioinMenu {
+    display: none;
+  }
+
+  .Menu .menutab {
+    font-size: larger;
+    height: 50px;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Menu .btn.menutab:hover {
+    color: white;
+  }
+  
   .Excel button {
     font-size: 0px;
   }
@@ -744,21 +939,46 @@ i {
     width: 200px;
   }
 
-  .Home h1 {
-    font-size: 30px;
-  }
-
   .introaddress {
     font-size: 10px;
   }
 
-  .footericon {
+  .Foot footer .foot-naming {
+    display: none;
+  }
+
+  .Foot footer ul {
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+  }
+
+  .Foot .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 0px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
+  }
+
+  .Foot i {
+    font-size: 15px;
+  }
+
+  .tagline-description h3 {
+    white-space: nowrap;
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 570px) {
+
+  .Intro h1 {
+    white-space: nowrap;
+    font-size: 2.3rem;
+  }
 
   .Intro img {
     height: 200px;
@@ -860,5 +1080,3 @@ i {
   font-weight: bold;
   color: #333;
 }
-
-

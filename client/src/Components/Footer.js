@@ -27,10 +27,10 @@ export default function Footer() {
     try {
       await axios.post("http://localhost:3001/AddContactInfo", { ...Contact })
         .then(result => {
-                    console.log(result)
-                    alert('Added')
-                    window.location.reload();
-                })
+          console.log(result)
+          alert('Added')
+          window.location.reload();
+        })
         .catch(error => console.log(error))
     } catch (error) {
       console.log(error);
@@ -43,7 +43,7 @@ export default function Footer() {
     axios.get('http://localhost:3001/GetContactInfo')
       .then(result => setAllContact(result.data))
       .catch(error => console.log(error))
-  },[])
+  }, [])
 
   const DeleteContactInfo = async (id) => {
     axios.delete('http://localhost:3001/DeleteContactInfo/' + id)
@@ -56,19 +56,17 @@ export default function Footer() {
 
   return (
     <div className='Foot'>
-      <div className="container">
-        <footer className="d-flex flex-wrap justify-content-between align-items-center">
-          <div className="col-md-4 d-flex align-items-center">
-            <span className="mb-md-0">© 2023 Techno School, Edu</span>
-          </div>
-          <ul className="nav col-md-5 justify-content-end list-unstyled d-flex">
-            <li className="ms-3"><Link to='/' className="btn btn-primary"><i className="fa-solid fa-house " />Home</Link></li>
-            <li className="ms-3"><button type="button" className="btn btn-info" data-bs-target="#ContactModalToggle" data-bs-toggle="modal"><i className="fa-solid fa-user " />Contact Us</button></li>
-            <li className="ms-3"><a className="btn btn-danger footericon" href="https://www.youtube.com/channel/UCsQisHLHtKsIbPFQRpZUZew" target='_blank' rel="noreferrer"><i className="fa-brands fa-youtube " />Youtube</a></li>
-            <li className="ms-3"><a className="btn btn-danger footericon" href="https://www.instagram.com/technoschool_bsp/" target='_blank' rel="noreferrer"><i className="fa-brands fa-instagram"/>Instagram</a></li>
-          </ul>
-        </footer>
-      </div>
+      <footer>
+        <div className="foot-naming">
+          <span className="mb-md-0">© 2023 Techno School, Edu</span>
+        </div>
+        <ul className="nav">
+          <li><Link to='/' className="btn"><i className="fa-solid fa-house " />Home</Link></li>
+          <li><button type="button" className="btn " data-bs-target="#ContactModalToggle" data-bs-toggle="modal"><i className="fa-solid fa-user " />Contact Us</button></li>
+          <li><a className="btn footericon" href="https://www.youtube.com/channel/UCsQisHLHtKsIbPFQRpZUZew" target='_blank' rel="noreferrer"><i className="fa-brands fa-youtube " />Youtube</a></li>
+          <li><a className="btn footericon" href="https://www.instagram.com/technoschool_bsp/" target='_blank' rel="noreferrer"><i className="fa-brands fa-instagram" />Instagram</a></li>
+        </ul>
+      </footer>
 
 
 
@@ -88,10 +86,10 @@ export default function Footer() {
                 AllContact.map((Element, idx) => {
                   return (
                     <div className='AddModal' key={idx}>
-                      <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-envelope " />Email : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.Email}</p></label>
-                      <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-phone " />Phone Number : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.PhoneNo}</p></label>
-                      <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-location-dot " />School Address : <p style={{ fontFamily: 'sans-serif', color:'black' }}>{Element.Location}</p></label>
-                      <label style={{ fontFamily:'Times New Roman', fontSize: '17px', color:'blue'}}><i className="fa-solid fa-location-dot " />Location : <a href='https://maps.app.goo.gl/cstLpnvmpNTHA3c5A' target='_blank' rel="noreferrer" style={{ fontFamily: 'sans-serif', color:'black' }}>Click here for Location</a></label>
+                      <label style={{ fontFamily: 'Times New Roman', fontSize: '17px', color: 'blue' }}><i className="fa-solid fa-envelope " />Email : <p style={{ fontFamily: 'sans-serif', color: 'black' }}>{Element.Email}</p></label>
+                      <label style={{ fontFamily: 'Times New Roman', fontSize: '17px', color: 'blue' }}><i className="fa-solid fa-phone " />Phone Number : <p style={{ fontFamily: 'sans-serif', color: 'black' }}>{Element.PhoneNo}</p></label>
+                      <label style={{ fontFamily: 'Times New Roman', fontSize: '17px', color: 'blue' }}><i className="fa-solid fa-location-dot " />School Address : <p style={{ fontFamily: 'sans-serif', color: 'black' }}>{Element.Location}</p></label>
+                      <label style={{ fontFamily: 'Times New Roman', fontSize: '17px', color: 'blue' }}><i className="fa-solid fa-location-dot " />Location : <a href='https://maps.app.goo.gl/cstLpnvmpNTHA3c5A' target='_blank' rel="noreferrer" style={{ fontFamily: 'sans-serif', color: 'black' }}>Click here for Location</a></label>
                       {
                         IsLoggedIn ? (
                           <div>
