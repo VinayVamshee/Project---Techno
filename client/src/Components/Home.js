@@ -114,7 +114,7 @@ export default function Home() {
 
 
             {
-                homeImages.length > 0 && homeImages.map((Element, idx) => {
+                homeImages.length > 0 && homeImages.slice().reverse().map((Element, idx) => {
                     return (
                         <div className={`About ${idx % 2 === 0 ? 'column' : 'column-reverse'}`} key={idx}>
                             <div className="about-img">
