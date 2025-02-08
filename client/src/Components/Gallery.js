@@ -214,7 +214,7 @@ export default function Gallery() {
             </div>
 
             <div className='Gallery-Cards'>
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
                     {
                         AllCard.slice().reverse().map((Element, idx) => {
                             return (
