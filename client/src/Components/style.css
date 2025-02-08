@@ -92,7 +92,6 @@ i {
 
 .Documents .dropdown .dropdown-toggle {
   font-size: large;
-  font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
 }
 
@@ -498,7 +497,6 @@ i {
 .introaddress {
   font-weight: bold;
   font-size: 20px;
-  font-family: 'Times New Roman', Times, serif;
 }
 
 .About {
@@ -764,6 +762,11 @@ i {
 
 @media (max-width: 850px) {
 
+  .tagline-description {
+    height: fit-content;
+    margin-bottom: 10vh;
+  }
+
   .about-img {
     height: 210px;
     width: 100%;
@@ -828,10 +831,16 @@ i {
     white-space: nowrap;
     font-size: 3.5rem;
   }
+  .Intro .tagline {
+    font-size: large;
+  }
 
   .tagline-description h3 {
     white-space: nowrap;
     font-size: 3rem;
+  }
+  .tagline-description p {
+    font-size: large;
   }
 }
 
@@ -1006,6 +1015,15 @@ i {
 }
 
 @media (max-width: 400px) {
+  .Intro h1 {
+    white-space: nowrap;
+    font-size: 2rem;
+  }
+
+  .tagline-description h3 {
+    font-size: 1.5rem;
+  }
+
   .Actions form input {
     width: 60px;
   }
@@ -1020,6 +1038,7 @@ i {
     height: 400px;
   }
 }
+
 
 .flipbook-container {
   padding: 50px;
