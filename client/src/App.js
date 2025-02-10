@@ -49,7 +49,7 @@ function App() {
 
 
   return (
-    <div className="App"  style={{ backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="App"  style={{ backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none', backgroundSize: 'contain'}}>
       <Router>
         <NavigationMenu />
         <Routes>
