@@ -14,6 +14,7 @@
   position: relative;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.749);
+  background-size: contain;
 }
 
 .video-background {
@@ -35,7 +36,7 @@
   align-items: center;
   border-bottom: .5px solid rgb(57, 57, 57);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.256);
-  background-color: #223a43f0;
+  background-color: #071357db;
   color: white;
   /* background-image: url('./Images/Wallpaper4.jpg'); */
   position: sticky;
@@ -363,7 +364,7 @@ i {
 
 .Foot {
   width: 100%;
-  background-color: #223a43d6;
+  background-color: #071357bc;
   color: white;
   position: fixed;
   bottom: 0;
@@ -433,7 +434,7 @@ i {
 }
 
 .scaleUp {
-  animation: scaleUp 0.3s ease-in-out forwards;
+  animation: scaleUp 0.75s ease-in-out forwards;
 }
 
 @keyframes scaleUp {
@@ -448,10 +449,13 @@ i {
   }
 }
 
+.p-message {
+  color: red;
+  width: fit-content;
+}
 
 .Intro h1 {
   font-size: 5rem;
-  background-color: rgba(0, 0, 0, 0.394);
   padding: 8px;
   border-radius: 25px;
   width: fit-content;
@@ -464,7 +468,7 @@ i {
 
 .Intro .tagline {
   font-size: 1.5rem;
-  background-color: #223a43cd;
+  background-color: #071357bc;
   padding: 5px;
   border-radius: 25px;
   width: fit-content;
@@ -494,7 +498,7 @@ i {
 .tagline-description p {
   font-size: 1.5rem;
   text-align: center;
-  background-color: #223a43cd;
+  background-color: #071357bc;
   padding: 5px;
   border-radius: 25px;
   opacity: 0;
@@ -515,7 +519,7 @@ i {
 .About {
   width: 100%;
   padding: 30px;
-  background-color: #223a4327;
+  background-color: #0713571a;
   color: black;
 
   display: flex;
@@ -776,8 +780,11 @@ i {
     height: 350px;
   }
 }
-
-
+@media (max-width: 850px) and (max-height: 1200px){
+.App {
+  background-size: cover;
+}
+}
 
 
 @media (max-width: 850px) {
@@ -870,6 +877,10 @@ i {
 
 @media (max-width: 777px) {
 
+  .App {
+    background-size: cover;
+  }
+
   .About {
     flex-direction: column;
     padding: 10px;
@@ -949,7 +960,7 @@ i {
 
 @media (max-width: 680px) {
   .Intro img {
-    height: 350px;
+    height: 250px;
   }
 }
 
@@ -1026,7 +1037,7 @@ i {
   }
 
   .Intro img {
-    height: 300px;
+    height: 220px;
   }
 }
 
@@ -1036,7 +1047,7 @@ i {
   }
 
   .Intro img {
-    height: 300px;
+    height: 180px;
   }
 
   .AdditionalImages img {
@@ -1075,6 +1086,12 @@ i {
   }
 }
 
+@media (max-width: 400px) {
+  .Intro img {
+    height: 150px;
+  }
+}
+
 
 .flipbook-container {
   padding: 50px;
@@ -1083,7 +1100,7 @@ i {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: #223a4375;
+  background-color: #0713571a;
 }
 
 .flipbook {
