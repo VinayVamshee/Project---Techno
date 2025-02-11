@@ -633,9 +633,9 @@ export default function NavigationMenu() {
             {/* CalendarModal */}
             <div className="modal fade" style={{ marginTop: '0px' }} id="CalendarModal" tabIndex="-1" aria-labelledby="CalendarModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-xl ">
-                    <div className="modal-content bg-secondary text-light calendar">
+                    <div className="modal-content text-light calendar">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="CalendarModalLabel">School-Calendar <span className='ms-5'>Vamshee Techno School </span></h1>
+                            <h1 className="modal-title fs-5" id="CalendarModalLabel">School-Calendar</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
