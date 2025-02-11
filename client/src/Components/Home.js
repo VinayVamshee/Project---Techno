@@ -38,7 +38,7 @@ export default function Home() {
                     }
                 });
             },
-            { threshold: 0.35 } // Adjusts when animation triggers
+            { threshold: 0.2 } // Adjusts when animation triggers
         );
 
         const elements = document.querySelectorAll(".Intro h1, .tagline, .tagline-description h3, .tagline-description p");
