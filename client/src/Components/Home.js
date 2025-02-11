@@ -103,7 +103,7 @@ export default function Home() {
                     <br />At Vamshee Techno School, every student matters, and every step forward counts.
                 </p>
                 <p>
-                    In this 'sensitive  task of educating children, the parents also have a responsible role to play.. Triangular efforts will be helpful for the complete development of the child. The student’s Diary is an instrument at your hand, which will bring all those information you may wish to know. This will serve as the medium of communication with you about your ward. I request you to please spare a little time to read this diary and put your signature.
+                    In this 'sensitive  task of educating children, the parents also have a responsible role to play.. Triangular efforts will be helpful for the complete development of the child. This website serves as a digital hub for students and parents, providing easy access to important documents such as notices, book lists, fee structures, admission forms, and more. It also features a gallery showcasing school events, functions, and activities, along with links to albums and YouTube videos.
                 </p>
                 <p className='d-flex flex-column align-items-end'>A dream is a hope or aspiration or something you desire and requires no effort. Aim is a direction towards a goal or purpose and requires effort. Always make your children to understand that there is only one difference between dream and aim. Dream requires sound sleep and aim requires sleepless efforts to fulfil.. Choice is yours to make and I am sure that the education imparted in our school would help you make a wise choice..
                     <br />
