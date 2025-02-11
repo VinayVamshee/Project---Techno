@@ -41,7 +41,7 @@ export default function Home() {
             { threshold: 0.2 } // Adjusts when animation triggers
         );
 
-        const elements = document.querySelectorAll(".Intro h1, .tagline, .tagline-description h3, .tagline-description p");
+        const elements = document.querySelectorAll(".Intro h1, .tagline, .tagline-description h3");
         elements.forEach((el) => observer.observe(el));
 
         return () => {
