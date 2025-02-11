@@ -99,13 +99,12 @@ export default function Home() {
 
             <div className='tagline-description'>
                 <h3>“Keep Going, Keep Growing”</h3>
-                <p>More than just a motto, it defines our commitment to fostering growth, unlocking potential, and guiding students toward success. Through a well-rounded curriculum and engaging co-curricular activities, we create an environment where learning is dynamic and development is continuous.
-                    <br />At Vamshee Techno School, every student matters, and every step forward counts.
-                </p>
-                <p>
+                <p className='d-flex flex-column align-items-end'>More than just a motto, it defines our commitment to fostering growth, unlocking potential, and guiding students toward success. Through a well-rounded curriculum and engaging co-curricular activities, we create an environment where learning is dynamic and development is continuous.
+                    <br />At Vamshee Techno School, every student matters, and every step forward counts.<br/>
+                
                     In this 'sensitive  task of educating children, the parents also have a responsible role to play.. Triangular efforts will be helpful for the complete development of the child. This website serves as a digital hub for students and parents, providing easy access to important documents such as notices, book lists, fee structures, admission forms, and more. It also features a gallery showcasing school events, functions, and activities, along with links to albums and YouTube videos.
-                </p>
-                <p className='d-flex flex-column align-items-end'>A dream is a hope or aspiration or something you desire and requires no effort. Aim is a direction towards a goal or purpose and requires effort. Always make your children to understand that there is only one difference between dream and aim. Dream requires sound sleep and aim requires sleepless efforts to fulfil.. Choice is yours to make and I am sure that the education imparted in our school would help you make a wise choice..
+                <br/>
+                A dream is a hope or aspiration or something you desire and requires no effort. Aim is a direction towards a goal or purpose and requires effort. Always make your children to understand that there is only one difference between dream and aim. Dream requires sound sleep and aim requires sleepless efforts to fulfil.. Choice is yours to make and I am sure that the education imparted in our school would help you make a wise choice..
                     <br />
                     Aim higher and our school will help you to scale higher peaks of excellence.
                     <p className='p-message'> - Principal's message</p>
