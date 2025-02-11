@@ -39,7 +39,7 @@
   align-items: center;
   border-bottom: .5px solid rgb(57, 57, 57);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.256);
-  background-color: #071357db;
+  background-color: #000000df;
   color: white;
   /* background-image: url('./Images/Wallpaper4.jpg'); */
   position: sticky;
@@ -367,7 +367,7 @@ i {
 
 .Foot {
   width: 100%;
-  background-color: #071357bc;
+  background-color: #000000a2;
   color: white;
   position: fixed;
   bottom: 0;
@@ -433,7 +433,7 @@ i {
   text-align: center;
   padding: 10px;
 
-  height: 90vh;
+  height: 80vh;
 }
 
 .scaleUp {
@@ -471,7 +471,7 @@ i {
 
 .Intro .tagline {
   font-size: 1.5rem;
-  background-color: #071357bc;
+  background-color: #00000093;
   padding: 5px;
   border-radius: 25px;
   width: fit-content;
@@ -500,7 +500,7 @@ i {
 .tagline-description p {
   font-size: 1.5rem;
   text-align: center;
-  background-color: #071357bc;
+  background-color: #00000093;
   padding: 5px;
   border-radius: 25px;
   opacity: 0;
@@ -521,7 +521,7 @@ i {
 .About {
   width: 100%;
   padding: 30px;
-  background-color: #0713571a;
+  background-color: #00000022;
   color: black;
 
   display: flex;
@@ -1102,7 +1102,7 @@ i {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: #0713571a;
+  background-color: #00000030;
 }
 
 .flipbook {
