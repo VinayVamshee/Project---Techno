@@ -219,7 +219,7 @@ export default function Gallery() {
                         AllCard.slice().reverse().map((Element, idx) => {
                             return (
                                 <div className="col" key={idx}>
-                                    <div className="card shadow-sm" >
+                                    <div className="card" >
                                         <img src={Element.MainImage} alt='...' />
                                         <div className="card-body">
                                             <p className="card-text">{Element.Description}</p>
