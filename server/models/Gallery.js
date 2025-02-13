@@ -8,7 +8,7 @@ const GallerySchema = new mongoose.Schema({
     Description: {
         type: String,
     },
-    AdditionalImages: {
+    Link: {
         type: String,
     },
     YoutubeLink: {
