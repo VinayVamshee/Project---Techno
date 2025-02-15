@@ -158,7 +158,7 @@ export default function Gallery() {
     return (
         <div className='Gallery'>
             <div className='CarouselDiv'>
-                <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
                     <div className="carousel-inner">
                         {AllCarouselImage && AllCarouselImage.length > 0 &&
  AllCarouselImage.map((Element, index) => (
