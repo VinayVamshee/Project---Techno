@@ -160,38 +160,19 @@ export default function Gallery() {
             <div className='CarouselDiv'>
                 <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-inner">
-                        {
-                            AllCarouselImage.length > 0 && (
-                                <div className="carousel-item active" >
-                                    <img src={AllCarouselImage[AllCarouselImage.length - 1].Image} className="d-block" alt="..." />
-                                    {
-                                        IsLoggedIn ? (
-                                            <div style={{ marginTop: '10px' }}>
-                                                <button className='btn btn-danger' onClick={() => DeleteCarouselImage(AllCarouselImage[AllCarouselImage.length - 1]._id)}><i className="fa-solid fa-trash " />Delete</button>
-                                            </div>
-                                        ) :
-                                            null
-                                    }
-                                </div>
-                            )
-                        }
-                        {
-                            AllCarouselImage.slice(0, -1).map((Element, idx) => {
-                                return (
-                                    <div className="carousel-item" key={idx}>
-                                        <img src={Element.Image} className="d-block" alt="..." />
-                                        {
-                                            IsLoggedIn ? (
-                                                <div style={{ marginTop: '10px' }}>
-                                                    <button className='btn btn-danger' onClick={() => DeleteCarouselImage(Element._id)}><i className="fa-solid fa-trash " />Delete</button>
-                                                </div>
-                                            ) :
-                                                null
-                                        }
-                                    </div>
-                                )
-                            })
-                        }
+                        {AllCarouselImage && AllCarouselImage.length > 0 &&
+ AllCarouselImage.map((Element, index) => (
+            <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={Element._id}>
+                <img src={Element.Image} className="d-block" alt="..." />
+                {IsLoggedIn && (
+                    <div style={{ marginTop: '10px' }}>
+                        <button className='btn btn-danger' onClick={() => DeleteCarouselImage(Element._id)}>
+                            <i className="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </div>
+                )}
+            </div>
+        ))}
                     </div>
                     <button className="carousel-control-prev" style={{height: '500px'}} type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
