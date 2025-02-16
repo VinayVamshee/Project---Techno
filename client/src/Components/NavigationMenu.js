@@ -640,7 +640,7 @@ export default function NavigationMenu() {
                         </div>
                         <div className="modal-body">
                             <iframe title='NationalHolidays' src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com&ctz=UTC"></iframe>
-                            <iframe title='technoschool' src="https://calendar.google.com/calendar/embed?src=technoschoolbsp%40gmail.com&ctz=UTC"></iframe>
+                            <iframe title='TechnoSchool' src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=UTC&showPrint=0&src=dGVjaG5vc2Nob29sYnNwQGdtYWlsLmNvbQ&src=Y2xhc3Nyb29tMTAzOTY4Nzk5NjQ4MTI2MDU2NTk5QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4uY2hyaXN0aWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaGluZHVpc20jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uanVkYWlzbSNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=Y2xhc3Nyb29tMTA4NDU5MjIyNjM3MzAwMDkwNTM5QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4uaXNsYW1pYyNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23AD1457&color=%23AD1457&color=%234285F4&color=%23B39DDB&color=%230B8043&color=%238E24AA&color=%23202124&color=%23F09300"></iframe>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-dark" data-bs-dismiss="modal">Close</button>
