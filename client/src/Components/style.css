@@ -171,30 +171,29 @@ i {
 }
 
 .NoticeBoard {
-  width: 100%;
-  height: 100%;
-}
-
-.NoticeBoard iframe {
-  width: 1000px;
-  height: 600px;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.NoticeBoard {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  width: 100%;
+  height: 100%;
 }
 
 .SingleNotice {
   display: flex;
   flex-direction: column;
   gap: 5px;
+
+  width: 100%;
+  height: 100%;
+}
+
+.NoticeBoard iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
 }
 
 .modal-backdrop {
@@ -733,10 +732,7 @@ i {
 
 @media (max-width: 1150px) {
 
-  /* .NoticeBoard iframe {
-    width: 1000px;
-    height: 900px;
-  } */
+  
   .about-img {
     height: 300px;
     width: 100%;
@@ -749,10 +745,7 @@ i {
 }
 
 @media (max-width: 1050px) {
-  .NoticeBoard iframe {
-    width: 800px;
-    height: 600px;
-  }
+  
 
   .calendar iframe {
     width: 400px;
@@ -863,10 +856,7 @@ i {
     object-fit: contain;
   }
 
-  .NoticeBoard iframe {
-    width: 600px;
-    height: 500px;
-  }
+  
 
   .Intro h1 {
     white-space: nowrap;
@@ -986,10 +976,7 @@ background-color: #000000df;
     padding: 2px;
   }
 
-  .NoticeBoard iframe {
-    width: 500px;
-    height: 600px;
-  }
+ 
 }
 
 @media (max-width: 600px) {
@@ -1068,10 +1055,7 @@ background-color: #000000df;
     object-fit: contain;
   }
 
-  .NoticeBoard iframe {
-    width: 400px;
-    height: 500px;
-  }
+ 
 }
 
 @media (max-width: 400px) {
@@ -1093,10 +1077,7 @@ background-color: #000000df;
     object-fit: contain;
   }
 
-  .NoticeBoard iframe {
-    width: 300px;
-    height: 400px;
-  }
+  
 }
 
 @media (max-width: 400px) {
