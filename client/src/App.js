@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import './Components/style.css'
 import Home from './Components/Home';
 import NavigationMenu from './Components/NavigationMenu';
@@ -13,6 +13,21 @@ import { jwtDecode } from 'jwt-decode';
 import Documentation from './Components/Documentation';
 import axios from 'axios';
 import Footer from './Components/Footer';
+import ReactGA from 'react-ga4';
+
+const TRACKING_ID = 'G-YJTBTHK92Z';
+ReactGA.initialize(TRACKING_ID);
+
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname });
+  }, [location]);
+
+  return null;
+}
+
 
 function App() {
 
@@ -41,16 +56,17 @@ function App() {
   checkTokenExpiration();
 
   const [backgroundImage, setBackgroundImage] = useState(null);
-    useEffect(() => {
-      axios.get('http://localhost:3001/getBackgroundImage')
-          .then(response => setBackgroundImage(response.data.data.imageUrl))
-          .catch(error => console.error('Error fetching background image:', error));
+  useEffect(() => {
+    axios.get('http://localhost:3001/getBackgroundImage')
+      .then(response => setBackgroundImage(response.data.data.imageUrl))
+      .catch(error => console.error('Error fetching background image:', error));
   }, []);
 
 
   return (
-    <div className="App"  style={{ backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none'}}>
+    <div className="App" style={{ backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none' }}>
       <Router>
+        <AnalyticsTracker />
         <NavigationMenu />
         <Routes>
           <Route path='/' exact element={<Home />} />
