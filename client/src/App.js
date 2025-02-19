@@ -14,6 +14,9 @@ import Documentation from './Components/Documentation';
 import axios from 'axios';
 import Footer from './Components/Footer';
 
+import { Analytics } from '@vercel/analytics/react';
+
+
 function App() {
 
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
@@ -69,6 +72,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
+      <Analytics />
     </div>
   );
 }
