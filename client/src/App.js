@@ -5,14 +5,13 @@ import NavigationMenu from './Components/NavigationMenu';
 import StudentsInfo from './Components/StudentsInfo';
 import TeacherInfo from './Components/TeacherInfo';
 import Gallery from './Components/Gallery';
-// import Footer from './Components/Footer';
 import { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
-// import Documents from './Components/Documents';
-
 import Documentation from './Components/Documentation';
 import axios from 'axios';
 import Footer from './Components/Footer';
+
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
 
@@ -42,7 +41,7 @@ function App() {
 
   const [backgroundImage, setBackgroundImage] = useState(null);
     useEffect(() => {
-      axios.get('https://project-techno.vercel.app/getBackgroundImage')
+      axios.get('http://localhost:3001/getBackgroundImage')
           .then(response => setBackgroundImage(response.data.data.imageUrl))
           .catch(error => console.error('Error fetching background image:', error));
   }, []);
@@ -69,6 +68,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
+      <Analytics />
     </div>
   );
 }
