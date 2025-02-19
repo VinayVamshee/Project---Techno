@@ -57,7 +57,7 @@ function App() {
 
   const [backgroundImage, setBackgroundImage] = useState(null);
   useEffect(() => {
-    axios.get('http://localhost:3001/getBackgroundImage')
+    axios.get('https://project-techno.vercel.app/getBackgroundImage')
       .then(response => setBackgroundImage(response.data.data.imageUrl))
       .catch(error => console.error('Error fetching background image:', error));
   }, []);
