@@ -751,6 +751,13 @@ i {
     width: 400px;
     height: 400px;
   }
+
+  .Gallery-Cards .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Always 3 columns */
+    gap: 10px;
+  }
 }
 
 
