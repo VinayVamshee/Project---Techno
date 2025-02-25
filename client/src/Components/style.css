@@ -443,7 +443,9 @@ i {
   text-align: center;
   padding: 10px;
 
-  height: 90vh;
+  height: fit-content;
+  margin-bottom: 10vh;
+  margin-top: 10vh;
 }
 
 .scaleUp {
@@ -462,7 +464,7 @@ i {
   }
 }
 
-.p-message {
+ .tagline-description .p-message {
   color: red;
   width: fit-content;
 }
@@ -510,9 +512,11 @@ i {
 .tagline-description p {
   font-size: 1.5rem;
   text-align: center;
-  background-color: #00000093;
+  color: black;
   padding: 5px;
   border-radius: 25px;
+  width: 75%;
+  opacity: 0;
 }
 
 .Intro img {
@@ -530,7 +534,7 @@ i {
 .About {
   width: 100%;
   padding: 30px;
-  background-color: #00000022;
+
   color: black;
 
   display: flex;
@@ -984,6 +988,10 @@ i {
 }
 
 @media (max-width: 680px) {
+
+  .tagline-description p {
+    width: 100%;
+  }
 
   .Gallery-Cards .row {
     display: grid;
