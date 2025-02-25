@@ -14,9 +14,9 @@
   position: relative;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.749);
-  background-size: contain;
+  background-size: cover;
   background-size: 100% auto;
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   background-position: top center;
 }
 
