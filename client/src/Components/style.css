@@ -151,6 +151,7 @@ i {
 .calendar .modal-body {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 
@@ -789,6 +790,9 @@ i {
   .calendar .modal-body {
     flex-direction: column;
     gap: 10px;
+  }
+  .calendar .modal-body iframe {
+    width: 100%;
   }
 
   .calendar iframe {
