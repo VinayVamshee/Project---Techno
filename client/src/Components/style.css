@@ -378,7 +378,7 @@ i {
 
 .Foot {
   width: 100%;
-  background-color: #000000a2;
+  background-color: #000000df;
   color: white;
   position: fixed;
   bottom: 0;
@@ -465,7 +465,7 @@ i {
   }
 }
 
- .tagline-description .p-message {
+.tagline-description .p-message {
   color: red;
   width: fit-content;
 }
@@ -517,6 +517,7 @@ i {
   padding: 5px;
   border-radius: 25px;
   width: 75%;
+  opacity: 0;
 }
 
 .Intro img {
@@ -790,6 +791,7 @@ i {
     flex-direction: column;
     gap: 10px;
   }
+
   .calendar .modal-body iframe {
     width: 100%;
   }
@@ -1040,6 +1042,14 @@ i {
     font-size: 10px;
   }
 
+  .tagline-description h3 {
+    white-space: nowrap;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 690px) {
+
   .Foot footer .foot-naming {
     display: none;
   }
@@ -1050,23 +1060,19 @@ i {
     flex-wrap: nowrap;
   }
 
-  .Foot .btn {
+  .Foot .nav .btn {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0px;
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 45px;
+    border: none;
     border-radius: 50%;
   }
 
-  .Foot i {
-    font-size: 15px;
-  }
-
-  .tagline-description h3 {
-    white-space: nowrap;
-    font-size: 1.8rem;
+  .Foot .nav i {
+    font-size: 18px;
   }
 }
 
