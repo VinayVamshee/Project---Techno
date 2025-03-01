@@ -62,6 +62,7 @@ export default function Footer() {
         </div>
         <ul className="nav">
           <li><Link to='/' className="btn"><i className="fa-solid fa-house " />Home</Link></li>
+    <li><Link to='/Gallery' className="btn"><i class="fa-solid fa-image" />Gallery</Link></li>
           <li><button type="button" className="btn " data-bs-target="#ContactModalToggle" data-bs-toggle="modal"><i className="fa-solid fa-user " />Contact Us</button></li>
           <li><a className="btn footericon" href="https://www.youtube.com/channel/UCsQisHLHtKsIbPFQRpZUZew" target='_blank' rel="noreferrer"><i className="fa-brands fa-youtube " />Youtube</a></li>
           <li><a className="btn footericon" href="https://www.instagram.com/technoschool_bsp/" target='_blank' rel="noreferrer"><i className="fa-brands fa-instagram" />Instagram</a></li>
